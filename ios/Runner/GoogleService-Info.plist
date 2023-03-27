@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>73120033003-9n9ne79le9a29oq3pl3iv2274l0q2tmb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.73120033003-9n9ne79le9a29oq3pl3iv2274l0q2tmb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAozTJFj6mfIQO8ttzhzbCPkd7g4RVDNRQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>73120033003</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.money5IosAndroid</string>
+	<key>PROJECT_ID</key>
+	<string>fir-stuff3-42916</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fir-stuff3-42916.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:73120033003:ios:c99b90127cebdd29b5f6ae</string>
+	<key>DATABASE_URL</key>
+	<string>https://fir-stuff3-42916.firebaseio.com</string>
+</dict>
+</plist>

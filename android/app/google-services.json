@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "73120033003",
+    "firebase_url": "https://fir-stuff3-42916.firebaseio.com",
+    "project_id": "fir-stuff3-42916",
+    "storage_bucket": "fir-stuff3-42916.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:73120033003:android:bc60b8b85fd80e66b5f6ae",
+        "android_client_info": {
+          "package_name": "com.example.money5_ios_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "73120033003-fnlg0dsou9is4k547em8ct3r20n09090.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyNuN09Glo40n7FlWLP-nA-SPXf9HYKXs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "73120033003-fnlg0dsou9is4k547em8ct3r20n09090.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "73120033003-0mclh94cs21jaa1rg09i44f7143luesp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterAppMoney5"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
