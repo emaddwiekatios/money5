@@ -69,281 +69,283 @@ class _ProductsDetailsState extends State<ProductsDetails> {
     var appLanguage = Provider.of<AppLanguage>(context);
 
 
-    return Scaffold(
-      key: _scaffoldKey,
-      // drawer: Appdrawer(),
-      body:
-      Stack(
-        children: <Widget>[
-          //header shape
-          Positioned(
-            top: 0,
-            left: 0,
-            child: Container(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height / 4,
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
-              decoration: BoxDecoration(
-                //borderRadius: BorderRadius.circular(200),
-                //  color: Colors.amber,
-              ),
-              child: CustomPaint(
-                child: Container(
-                  height: 400.0,
+    return SafeArea(
+      child: Scaffold(
+        key: _scaffoldKey,
+        // drawer: Appdrawer(),
+        body:
+        Stack(
+          children: <Widget>[
+            //header shape
+            Positioned(
+              top: 0,
+              left: 0,
+              child: Container(
+                height: MediaQuery
+                    .of(context)
+                    .size
+                    .height / 4,
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width,
+                decoration: BoxDecoration(
+                  //borderRadius: BorderRadius.circular(200),
+                  //  color: Colors.amber,
                 ),
-                painter: _MyPainter(),
+                child: CustomPaint(
+                  child: Container(
+                    height: 400.0,
+                  ),
+                  painter: _MyPainter(),
+                ),
               ),
             ),
-          ),
 
-          //a
-          Positioned(
-            bottom: -125,
-            left: -150,
-            child: Container(
-              height: 250, //MediaQuery.of(context).size.height / 4,
-              width: 250, //MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(250),
-                color: colorOne,
+            //a
+            Positioned(
+              bottom: -125,
+              left: -150,
+              child: Container(
+                height: 250, //MediaQuery.of(context).size.height / 4,
+                width: 250, //MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(250),
+                  color: colorOne,
+                ),
               ),
             ),
-          ),
-          Positioned(
-            bottom: -100,
-            right: -115,
-            child: Container(
-              height: 250, //MediaQuery.of(context).size.height / 4,
-              width: 250, //MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(200),
-                  color: colorTwo),
+            Positioned(
+              bottom: -100,
+              right: -115,
+              child: Container(
+                height: 250, //MediaQuery.of(context).size.height / 4,
+                width: 250, //MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(200),
+                    color: colorTwo),
+              ),
             ),
-          ),
-          //menu
-          Positioned(
-            top: pheight/25,
-            left: pwidth/20,
-            child: IconButton(
-              icon: Icon(Icons.menu),
-              onPressed: () {
-                print('inside button');
-                // _scaffoldKey.currentState.openDrawer();
+            //menu
+            Positioned(
+              top: pheight/25,
+              left: pwidth/20,
+              child: IconButton(
+                icon: Icon(Icons.menu),
+                onPressed: () {
+                  print('inside button');
+                  // _scaffoldKey.currentState.openDrawer();
 
-                Navigator.pushReplacementNamed(context, "/ProductsMain");
-              },
+                  Navigator.pushReplacementNamed(context, "/ProductsMain");
+                },
+              ),
             ),
-          ),
-          Positioned(
-            top: pheight/25,
-            right: pwidth/20,
-            child: IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () {
-                print('inside button');
-                // FirebaseAuth.instance.signOut();
-                Navigator.pop(context);
-                //  Navigator.popAndPushNamed(context, "/SignIn");
+            Positioned(
+              top: pheight/25,
+              right: pwidth/20,
+              child: IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  print('inside button');
+                  // FirebaseAuth.instance.signOut();
+                  Navigator.pop(context);
+                  //  Navigator.popAndPushNamed(context, "/SignIn");
 
-                //Navigator.pushReplacementNamed(context, "/SignIn");
-              },
+                  //Navigator.pushReplacementNamed(context, "/SignIn");
+                },
+              ),
             ),
-          ),
-          //body
-          Positioned(
-            top: MediaQuery.of(context).size.height/10,
-            bottom: MediaQuery.of(context).size.height/30,
-            child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height >= 775.0
-                    ? MediaQuery.of(context).size.height
-                    : 775.0,
+            //body
+            Positioned(
+              top: MediaQuery.of(context).size.height/10,
+              bottom: MediaQuery.of(context).size.height/30,
+              child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height >= 775.0
+                      ? MediaQuery.of(context).size.height
+                      : 775.0,
 
-                child:Container(
+                  child:Container(
 
-                    padding: EdgeInsets.all(5.0),
-                    child: new Card(
-                      child: new Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left:10.0,right:10),
-                            child: new Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                new Padding(
-                                  padding: EdgeInsets.all(5.0),
-                                ),
-                                new Text(
-                                  '${AppLocalizations.of(context).translate('No') } :  ${widget.Docs_id}',
-                                  style: new TextStyle(
-                                    fontSize: 20.0,
+                      padding: EdgeInsets.all(5.0),
+                      child: new Card(
+                        child: new Center(
+                            child: Padding(
+                              padding: const EdgeInsets.only(left:10.0,right:10),
+                              child: new Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  new Padding(
+                                    padding: EdgeInsets.all(5.0),
                                   ),
-                                  textAlign: TextAlign.right,
-                                ),
-                                new Text(
-                                  '${AppLocalizations.of(context).translate('Name')} :  ${widget.Docs_name}',
-                                  style: new TextStyle(
-                                    fontSize: 20.0,
+                                  new Text(
+                                    '${AppLocalizations.of(context).translate('No') } :  ${widget.Docs_id}',
+                                    style: new TextStyle(
+                                      fontSize: 20.0,
+                                    ),
+                                    textAlign: TextAlign.right,
                                   ),
-                                ),
-                                new Text(
-                                  '${AppLocalizations.of(context).translate('Desc') } :  ${widget.Docs_desc}',
-                                  style: new TextStyle(
-                                    fontSize: 20.0,
+                                  new Text(
+                                    '${AppLocalizations.of(context).translate('Name')} :  ${widget.Docs_name}',
+                                    style: new TextStyle(
+                                      fontSize: 20.0,
+                                    ),
                                   ),
-                                ),
-                                new Text(
-                                  '${AppLocalizations.of(context).translate('Date') }  :  ${widget.Docs_date}',
-                                  style: new TextStyle(
-                                    fontSize: 20.0,
+                                  new Text(
+                                    '${AppLocalizations.of(context).translate('Desc') } :  ${widget.Docs_desc}',
+                                    style: new TextStyle(
+                                      fontSize: 20.0,
+                                    ),
                                   ),
-                                ),
-                                new Text(
-                                  '${AppLocalizations.of(context).translate('Category') }  :  ${widget.Docs_cat}',
-                                  style: new TextStyle(
-                                    fontSize: 20.0,
+                                  new Text(
+                                    '${AppLocalizations.of(context).translate('Date') }  :  ${widget.Docs_date}',
+                                    style: new TextStyle(
+                                      fontSize: 20.0,
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top:8.0,bottom:8),
-                                  child: InkWell(
-                                    onTap: () {
-                                      print('hello');
-                                      Navigator.of(context).push(
-                                        new MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                            new ProductDetailsBigimg(
-                                              Docs_id: widget.Docs_id,
-                                              Docs_name: widget.Docs_name,
-                                              Docs_desc: widget.Docs_desc,
-                                              Docs_price: widget.Docs_price,
-                                              Docs_fav: widget.Docs_fav,
-                                              Docs_cat: widget.Docs_cat,
-                                              Docs_date: widget.Docs_date,
-                                              Docs_img: widget.Docs_img,
-                                              Docs_doc_id: widget.Docs_doc_id,
+                                  new Text(
+                                    '${AppLocalizations.of(context).translate('Category') }  :  ${widget.Docs_cat}',
+                                    style: new TextStyle(
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top:8.0,bottom:8),
+                                    child: InkWell(
+                                      onTap: () {
+                                        print('hello');
+                                        Navigator.of(context).push(
+                                          new MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                              new ProductDetailsBigimg(
+                                                Docs_id: widget.Docs_id,
+                                                Docs_name: widget.Docs_name,
+                                                Docs_desc: widget.Docs_desc,
+                                                Docs_price: widget.Docs_price,
+                                                Docs_fav: widget.Docs_fav,
+                                                Docs_cat: widget.Docs_cat,
+                                                Docs_date: widget.Docs_date,
+                                                Docs_img: widget.Docs_img,
+                                                Docs_doc_id: widget.Docs_doc_id,
 
 
-                                              //Docs_img: widget.Docs_img
+                                                //Docs_img: widget.Docs_img
 
-                                            ),)
+                                              ),)
 
-                                      );
+                                        );
 
-                                    },
-                                    child: Container(
+                                      },
+                                      child: Container(
 
-                                      height: MediaQuery.of(context).size.height/2.5,
-                                      width: MediaQuery.of(context).size.width-30,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            image:  NetworkImage(widget.Docs_img),
-                                            fit: BoxFit.cover,
+                                        height: MediaQuery.of(context).size.height/2.5,
+                                        width: MediaQuery.of(context).size.width-30,
+                                        decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image:  NetworkImage(widget.Docs_img),
+                                              fit: BoxFit.cover,
 
-                                          ),
-                                          borderRadius: BorderRadius.circular(10)
+                                            ),
+                                            borderRadius: BorderRadius.circular(10)
 
 
-                                      ),
+                                        ),
 //                                  child: Image.network(
 //                                    widget.Docs_img,
 //                                   // height: pheight/2,
 //                                 //   width: pwidth-20,
 //                                  ),
+                                      ),
                                     ),
                                   ),
-                                ),
-                                new Padding(
-                                  padding: EdgeInsets.only(top: 0.0),
-                                ),
-                                new Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                //  crossAxisAlignment: CrossAxisAlignment.center,
-                                  // mainAxisSize: MainAxisSize.min,
-                                  children: <Widget>[
-                                    Center(
-                                      child: new RaisedButton(
-                                          child: new Text(AppLocalizations.of(context).translate('Edit')),
-                                          color: Red_deep,
-                                          // onPressed: ()
-                                          onPressed: () {
-                                            // print("widget.pcarnameg = ${widget.pcarnameg}");
-                                            Navigator.of(context).push(
-                                              new MaterialPageRoute(
-                                                  builder: (BuildContext context) =>
-                                                  new ProductsEditNew(
+                                  new Padding(
+                                    padding: EdgeInsets.only(top: 0.0),
+                                  ),
+                                  new Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  //  crossAxisAlignment: CrossAxisAlignment.center,
+                                    // mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      Center(
+                                        child: new RaisedButton(
+                                            child: new Text(AppLocalizations.of(context).translate('Edit')),
+                                            color: Red_deep,
+                                            // onPressed: ()
+                                            onPressed: () {
+                                              // print("widget.pcarnameg = ${widget.pcarnameg}");
+                                              Navigator.of(context).push(
+                                                new MaterialPageRoute(
+                                                    builder: (BuildContext context) =>
+                                                    new ProductsEditNew(
 
-                                                    Docs_id: widget.Docs_id,
-                                                    Docs_name: widget.Docs_name,
-                                                    Docs_desc: widget.Docs_desc,
-                                                    Docs_price: widget.Docs_price,
-                                                    Docs_fav: widget.Docs_fav,
-                                                    Docs_cat: widget.Docs_cat,
-                                                    Docs_date: widget.Docs_date,
-                                                    Docs_img: widget.Docs_img,
-                                                    Docs_doc_id: widget.Docs_doc_id,
-                                                  )),
+                                                      Docs_id: widget.Docs_id,
+                                                      Docs_name: widget.Docs_name,
+                                                      Docs_desc: widget.Docs_desc,
+                                                      Docs_price: widget.Docs_price,
+                                                      Docs_fav: widget.Docs_fav,
+                                                      Docs_cat: widget.Docs_cat,
+                                                      Docs_date: widget.Docs_date,
+                                                      Docs_img: widget.Docs_img,
+                                                      Docs_doc_id: widget.Docs_doc_id,
+                                                    )),
 
-                                            );
+                                              );
 
-                                          }),
-                                    ),
-                                    new RaisedButton(
-                                      child: new Text(AppLocalizations.of(context).translate('Delete')),
-                                      color: Red_deep,
-                                      onPressed: () {
-                                        print("widget.pproductdocid ${widget.Docs_doc_id}");
-                                        deleteData(widget.Docs_doc_id) ;
-                                        Navigator.of(context).pushReplacement(
-                                          new MaterialPageRoute(
-                                              builder: (BuildContext context) => new ProductsMain()),
-                                        );
-                                       //    Navigator.of(context).pop();
-                                        // comfirm();
+                                            }),
+                                      ),
+                                      new RaisedButton(
+                                        child: new Text(AppLocalizations.of(context).translate('Delete')),
+                                        color: Red_deep,
+                                        onPressed: () {
+                                          print("widget.pproductdocid ${widget.Docs_doc_id}");
+                                          deleteData(widget.Docs_doc_id) ;
+                                          Navigator.of(context).pushReplacement(
+                                            new MaterialPageRoute(
+                                                builder: (BuildContext context) => new ProductsMain()),
+                                          );
+                                         //    Navigator.of(context).pop();
+                                          // comfirm();
 
-                                        //  updatedata();
-
+                                          //  updatedata();
 
 
 
-                                      },
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          )),
-                    ))
+
+                                        },
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            )),
+                      ))
 
 
 
+              ),
             ),
-          ),
 
 //title
-          Positioned(
-            top: MediaQuery
-                .of(context)
-                .size
-                .height/20,
-            left: MediaQuery
-                .of(context)
-                .size
-                .width / 2 - 70,
-            child: Text(
-              ' ${widget.Docs_name}',
-              style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+            Positioned(
+              top: MediaQuery
+                  .of(context)
+                  .size
+                  .height/20,
+              left: MediaQuery
+                  .of(context)
+                  .size
+                  .width / 2 - 70,
+              child: Text(
+                ' ${widget.Docs_name}',
+                style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
 
 
 
-        ],
+          ],
+        ),
       ),
     );
 

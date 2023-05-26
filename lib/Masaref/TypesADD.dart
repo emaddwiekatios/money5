@@ -97,400 +97,402 @@ class _TypesADDState extends State<TypesADD> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Stack(
-                children: <Widget>[
-                  Container(
-                    //color: Color(getColorHexFromStr('#FDD148')),
-                    //color: Color(getColorHexFromStr('#FDD148')),
-                    height: MediaQuery.of(context).size.height ,
-                    width: MediaQuery.of(context).size.width,
-                  ),
-                  Positioned(
-                    top: 0,
-                    left: 0,
-                    child:  Container(
-                      height: MediaQuery.of(context).size.height / 4,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        // borderRadius: BorderRadius.circular(200),
-                        color: Color(getColorHexFromStr('#FDD110')),
-                      ),
-                    ),
-                  ),
-
-                  Positioned(
-                    top: 100,
-                    left: 200,
-                    child:  Container(
-                      height: 250,//MediaQuery.of(context).size.height / 4,
-                      width: 250,//MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(200),
-                        color: Color(getColorHexFromStr('#FEE16D'),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 100,
-                    left: 200,
-                    child:  Container(
-                      height: 250,//MediaQuery.of(context).size.height / 4,
-                      width: 250,//MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(200),
-                        color: Color(getColorHexFromStr('#FEE16D'),
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  Positioned(
-                    bottom: -40,
-                    left: -30,
-                    child:  Container(
-                      height: MediaQuery.of(context).size.height / 4,
-                      width: MediaQuery.of(context).size.width/2,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(200),
-                        color: Color(getColorHexFromStr('#FEE16D'),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: 20,
-                    left: 20,
-                    child: IconButton(
-                      icon: Icon(Icons.arrow_back),
-                      onPressed: () {
-                        print('inside button');
-                        Navigator.pop(context);
-
-/*
-                        Navigator.of(context).push(
-                          new MaterialPageRoute(
-                              builder:  (BuildContext context) => new TypeMain()),
-                        );
-*/
-                      },
-                    ),
-                  ),
-                  //body
-//title
-                  Positioned(
-                    top: MediaQuery
-                        .of(context)
-                        .size
-                        .height/25,
-                    left: MediaQuery
-                        .of(context)
-                        .size
-                        .width / 2 - 70,
-                    child: Text(
-                      'Add Type',
-                      style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Positioned(
-                    top: 50,
-                    left: 20,
-                    right: 20,
-                    bottom: 20,
-                    child:  Container(
+    return SafeArea(
+      child: Scaffold(
+          body: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Stack(
+                  children: <Widget>[
+                    Container(
+                      //color: Color(getColorHexFromStr('#FDD148')),
+                      //color: Color(getColorHexFromStr('#FDD148')),
                       height: MediaQuery.of(context).size.height ,
                       width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        //borderRadius: BorderRadius.circular(200),
-                        //  color: Colors.yellow//Color(getColorHexFromStr('#FDD110')),
-                      ),
-                      child:Padding(
-                        padding: const EdgeInsets.all(4),
-                        child: Container(
-                          height: MediaQuery.of(context).size.height,
-                          width:  MediaQuery.of(context).size.width,
-                          child: new Center(
-                              child: Column(
-                                children: <Widget>[
-                                  TextFormField(
-                                    controller: conttypeid,
-                                    validator: (input) {
-                                      if (input.isEmpty) {
-                                        return 'Please type Id ';
-                                      }
-                                    },
-                                    onSaved: (input) => imagename = input,
-
-                                    decoration: InputDecoration(
-                                      labelText: 'type id',
-                                    ),
-                                    // obscureText: true,
-                                  ),
-                                  TextFormField(
-                                    controller: conttypename,
-                                    validator: (input) {
-                                      if (input.isEmpty) {
-                                        return 'Please type Name';
-                                      }
-                                    },
-                                    onSaved: (input) => imagename = input,
-                                    decoration: InputDecoration(
-                                      labelText: 'type Name',
-                                    ),
-
-                                    // obscureText: true,
-                                  ),
-                                  TextFormField(
-                                    controller: conttypedesc,
-                                    validator: (input) {
-                                      if (input.isEmpty) {
-                                        return 'Please type Desc ';
-                                      }
-                                    },
-                                    onSaved: (input) => imagename = input,
-                                    decoration: InputDecoration(labelText: 'type Desc'),
-                                    // obscureText: true,
-                                  ),
-
-                                  ///
-                                  ///
-                                  Row(
-                                    children: <Widget>[
-                                  Align(
-                                        alignment: Alignment.topLeft,
-                                        child: DropdownButton<String>(
-
-                                            items: list_cat.map((String val)
-                                            {
-                                              return new DropdownMenuItem<String>(
-                                                value: val,
-                                                child: new Text(val),
-                                              );
-                                            }).toList(),
-                                            hint: Text(_selectedCat),
-                                            onChanged: (newVal) {
-
-                                              this.setState(() {
-                                                _selectedCat = newVal;
-                                              });
-                                            }),
-                                      ),
-                                     IconButton(icon: Icon(Icons.refresh,color: Colors.blue), onPressed: (){
-                                       this.refresh_data();
-                                     }),
-                                      Container(
-                                        height: MediaQuery.of(context).size.height/22,
-                                        width: MediaQuery.of(context).size.width/2.8,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(5),
-                                          color: Colors.blue,
-                                        ),
-                                        child: FlatButton(
-
-                                            // color: Colors.amber,
-                                            textColor: Colors.white,
-                                            padding: EdgeInsets.all(3.0),
-                                            splashColor: Colors.blueAccent,
-                                            onPressed: () {
-
-                                              Navigator.of(context).push(
-                                                  new MaterialPageRoute(
-                                                  builder:  (BuildContext context) => new AddCategoryType(),
-                                                  ),);
-
-                                                  },
-                                            child: Text("Add Category!",
-                                                style: TextStyle(fontSize: 18.0),
-
-
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  /*   TextFormField(
-                  controller: conttypecat,
-                  validator: (input) {
-                    if (input.isEmpty) {
-                      return 'Please typeing Cat';
-                    }
-                  },
-                  onSaved: (input) => imagename = input,
-                  decoration: InputDecoration(labelText: 'typeing Cat'),
-                  // obscureText: true,
-                ),
-*/
-                                  ///
-                                  new Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      // new Text("Price"),
-                                      new Flexible(
-                                        child: new TextField(
-                                            keyboardType: TextInputType.number,
-                                            controller: conttypepriceS,
-                                            decoration: InputDecoration(
-
-                                              contentPadding: EdgeInsets.all(10),
-                                              hintText: 'Enter a Price',
-                                            )),
-                                      ),
-                                      /*  SizedBox(
-                                          width: 20.0,
-                                        ),
-                                        new Flexible(
-                                          child: new TextField(
-                                              controller: conttypepriceM,
-                                              decoration: InputDecoration(
-                                                contentPadding: EdgeInsets.all(10),
-                                                hintText: 'Enter a Price Medium',
-                                              )),
-                                        ),
-                                        SizedBox(
-                                          width: 20.0,
-                                        ),
-                                        new Flexible(
-                                          child: new TextField(
-                                              controller: conttypepriceL,
-                                              decoration: InputDecoration(
-                                                contentPadding: EdgeInsets.all(10),
-                                                hintText: 'Enter a Price Large',
-                                              )),
-                                        ),
-                                        SizedBox(
-                                          width: 20.0,
-                                        ),
-                                        */
-                                      /*  new Text("Fav"),
-                    new Flexible(
-                      child: new TextField(
-                          controller: contTypesADDet,
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(10),
-                            hintText: 'Please enter a Fat',
-                          )),
                     ),
-                    */
-                                    ],
-                                  ),
-                                  /*  TextFormField(
-                  controller: conttypedentrydate,
-                  validator: (input) {
-                    if (input.isEmpty) {
-                      return 'Please typeing entery Date';
-                    }
-                  },
-                  onSaved: (input) => imagename = input,
-                  decoration: InputDecoration(labelText: 'typeing Entery date'),
-                  // obscureText: true,
-                ),
-                */
-                     sampleimage == null ? Text("Select an image") : Image.file(
-
-                                    sampleimage,
-                                    height: 200.0,
-                                    width: 200.0,
-                                  ),
-
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      RaisedButton(
-                                        elevation: 7.0,
-                                        child: Text("Compressed"),
-                                        //  Text("Upload"),
-                                        textColor: Colors.white,
-                                        color: Colors.blue,
-                                        onPressed: () {
-                                          compressImage();
-                                          /* final StorageReference fbsr =FirebaseStorage.instance.ref().child('${contimage.text}.jpg');
-                     final StorageUploadTask task = fbsr.putFile(sampleimage);
-                     var downurl = fbsr.getDownloadURL();
-                    print("the URL for image= ${downurl.toString()}");
-                     */
-                                        },
-                                      ),
-                                      RaisedButton(
-                                        elevation: 7.0,
-                                        child: setUpButtonChild(),
-                                        //  Text("Upload"),
-                                        textColor: Colors.white,
-                                        color: Colors.blue,
-                                        onPressed: () {
-                                          print('stat${state}');
-                                          print('sampleimage${sampleimage}');
-                                          if(sampleimage ==  null) {
-                                            setState(() {
-                                              state = 2;
-                                            });
-                                            addimagedata();
-                                            addimagedatahist();
-
-                                          }
-                                          else if (sampleimage != null){
-                                            setState(() {
-                                              state = 1;
-                                            });
-                                            uploadimage();
-                                          }
-
-                                          setState(() {
-                                            conttypeid.text=(int.parse(conttypeid.text)+1).toString();
-                                            conttypename.text=null;
-                                            conttypedesc.text=null;
-                                            conttypepriceS.text=null;
-                                            conttypename.clear();
-                                            conttypedesc.clear();
-                                            conttypepriceS.clear();
-
-                                          });
-                                        },
-                                      ),
-                                    ],
-                                  ),
-
-                                  new Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      IconButton(
-                                        icon: Icon(Icons.camera_roll),
-                                        onPressed: () {
-                                          getImagecamera();
-
-                                          setState(() {
-                                            state = 0;
-                                          });
-                                        },
-                                      ),
-                                      IconButton(
-                                        icon: Icon(Icons.add_a_photo),
-                                        onPressed: () {
-                                          getImagegalary();
-
-                                          setState(() {
-                                            state = 0;
-                                          });
-                                        },
-                                      )
-                                    ],
-                                  )
-                                ],
-                              )),
+                    Positioned(
+                      top: 0,
+                      left: 0,
+                      child:  Container(
+                        height: MediaQuery.of(context).size.height / 4,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          // borderRadius: BorderRadius.circular(200),
+                          color: Color(getColorHexFromStr('#FDD110')),
                         ),
                       ),
                     ),
+
+                    Positioned(
+                      top: 100,
+                      left: 200,
+                      child:  Container(
+                        height: 250,//MediaQuery.of(context).size.height / 4,
+                        width: 250,//MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(200),
+                          color: Color(getColorHexFromStr('#FEE16D'),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 100,
+                      left: 200,
+                      child:  Container(
+                        height: 250,//MediaQuery.of(context).size.height / 4,
+                        width: 250,//MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(200),
+                          color: Color(getColorHexFromStr('#FEE16D'),
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    Positioned(
+                      bottom: -40,
+                      left: -30,
+                      child:  Container(
+                        height: MediaQuery.of(context).size.height / 4,
+                        width: MediaQuery.of(context).size.width/2,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(200),
+                          color: Color(getColorHexFromStr('#FEE16D'),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 20,
+                      left: 20,
+                      child: IconButton(
+                        icon: Icon(Icons.arrow_back),
+                        onPressed: () {
+                          print('inside button');
+                          Navigator.pop(context);
+
+/*
+                          Navigator.of(context).push(
+                            new MaterialPageRoute(
+                                builder:  (BuildContext context) => new TypeMain()),
+                          );
+*/
+                        },
+                      ),
+                    ),
+                    //body
+//title
+                    Positioned(
+                      top: MediaQuery
+                          .of(context)
+                          .size
+                          .height/25,
+                      left: MediaQuery
+                          .of(context)
+                          .size
+                          .width / 2 - 70,
+                      child: Text(
+                        'Add Type',
+                        style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Positioned(
+                      top: 50,
+                      left: 20,
+                      right: 20,
+                      bottom: 20,
+                      child:  Container(
+                        height: MediaQuery.of(context).size.height ,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          //borderRadius: BorderRadius.circular(200),
+                          //  color: Colors.yellow//Color(getColorHexFromStr('#FDD110')),
+                        ),
+                        child:Padding(
+                          padding: const EdgeInsets.all(4),
+                          child: Container(
+                            height: MediaQuery.of(context).size.height,
+                            width:  MediaQuery.of(context).size.width,
+                            child: new Center(
+                                child: Column(
+                                  children: <Widget>[
+                                    TextFormField(
+                                      controller: conttypeid,
+                                      validator: (input) {
+                                        if (input.isEmpty) {
+                                          return 'Please type Id ';
+                                        }
+                                      },
+                                      onSaved: (input) => imagename = input,
+
+                                      decoration: InputDecoration(
+                                        labelText: 'type id',
+                                      ),
+                                      // obscureText: true,
+                                    ),
+                                    TextFormField(
+                                      controller: conttypename,
+                                      validator: (input) {
+                                        if (input.isEmpty) {
+                                          return 'Please type Name';
+                                        }
+                                      },
+                                      onSaved: (input) => imagename = input,
+                                      decoration: InputDecoration(
+                                        labelText: 'type Name',
+                                      ),
+
+                                      // obscureText: true,
+                                    ),
+                                    TextFormField(
+                                      controller: conttypedesc,
+                                      validator: (input) {
+                                        if (input.isEmpty) {
+                                          return 'Please type Desc ';
+                                        }
+                                      },
+                                      onSaved: (input) => imagename = input,
+                                      decoration: InputDecoration(labelText: 'type Desc'),
+                                      // obscureText: true,
+                                    ),
+
+                                    ///
+                                    ///
+                                    Row(
+                                      children: <Widget>[
+                                    Align(
+                                          alignment: Alignment.topLeft,
+                                          child: DropdownButton<String>(
+
+                                              items: list_cat.map((String val)
+                                              {
+                                                return new DropdownMenuItem<String>(
+                                                  value: val,
+                                                  child: new Text(val),
+                                                );
+                                              }).toList(),
+                                              hint: Text(_selectedCat),
+                                              onChanged: (newVal) {
+
+                                                this.setState(() {
+                                                  _selectedCat = newVal;
+                                                });
+                                              }),
+                                        ),
+                                       IconButton(icon: Icon(Icons.refresh,color: Colors.blue), onPressed: (){
+                                         this.refresh_data();
+                                       }),
+                                        Container(
+                                          height: MediaQuery.of(context).size.height/22,
+                                          width: MediaQuery.of(context).size.width/2.8,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(5),
+                                            color: Colors.blue,
+                                          ),
+                                          child: FlatButton(
+
+                                              // color: Colors.amber,
+                                              textColor: Colors.white,
+                                              padding: EdgeInsets.all(3.0),
+                                              splashColor: Colors.blueAccent,
+                                              onPressed: () {
+
+                                                Navigator.of(context).push(
+                                                    new MaterialPageRoute(
+                                                    builder:  (BuildContext context) => new AddCategoryType(),
+                                                    ),);
+
+                                                    },
+                                              child: Text("Add Category!",
+                                                  style: TextStyle(fontSize: 18.0),
+
+
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    /*   TextFormField(
+                    controller: conttypecat,
+                    validator: (input) {
+                      if (input.isEmpty) {
+                        return 'Please typeing Cat';
+                      }
+                    },
+                    onSaved: (input) => imagename = input,
+                    decoration: InputDecoration(labelText: 'typeing Cat'),
+                    // obscureText: true,
                   ),
+*/
+                                    ///
+                                    new Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: <Widget>[
+                                        // new Text("Price"),
+                                        new Flexible(
+                                          child: new TextField(
+                                              keyboardType: TextInputType.number,
+                                              controller: conttypepriceS,
+                                              decoration: InputDecoration(
 
-                ],
-              ),
+                                                contentPadding: EdgeInsets.all(10),
+                                                hintText: 'Enter a Price',
+                                              )),
+                                        ),
+                                        /*  SizedBox(
+                                            width: 20.0,
+                                          ),
+                                          new Flexible(
+                                            child: new TextField(
+                                                controller: conttypepriceM,
+                                                decoration: InputDecoration(
+                                                  contentPadding: EdgeInsets.all(10),
+                                                  hintText: 'Enter a Price Medium',
+                                                )),
+                                          ),
+                                          SizedBox(
+                                            width: 20.0,
+                                          ),
+                                          new Flexible(
+                                            child: new TextField(
+                                                controller: conttypepriceL,
+                                                decoration: InputDecoration(
+                                                  contentPadding: EdgeInsets.all(10),
+                                                  hintText: 'Enter a Price Large',
+                                                )),
+                                          ),
+                                          SizedBox(
+                                            width: 20.0,
+                                          ),
+                                          */
+                                        /*  new Text("Fav"),
+                      new Flexible(
+                        child: new TextField(
+                            controller: contTypesADDet,
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.all(10),
+                              hintText: 'Please enter a Fat',
+                            )),
+                      ),
+                      */
+                                      ],
+                                    ),
+                                    /*  TextFormField(
+                    controller: conttypedentrydate,
+                    validator: (input) {
+                      if (input.isEmpty) {
+                        return 'Please typeing entery Date';
+                      }
+                    },
+                    onSaved: (input) => imagename = input,
+                    decoration: InputDecoration(labelText: 'typeing Entery date'),
+                    // obscureText: true,
+                  ),
+                  */
+                       sampleimage == null ? Text("Select an image") : Image.file(
 
-            ],
-          ),
-        ));
+                                      sampleimage,
+                                      height: 200.0,
+                                      width: 200.0,
+                                    ),
+
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        RaisedButton(
+                                          elevation: 7.0,
+                                          child: Text("Compressed"),
+                                          //  Text("Upload"),
+                                          textColor: Colors.white,
+                                          color: Colors.blue,
+                                          onPressed: () {
+                                            compressImage();
+                                            /* final StorageReference fbsr =FirebaseStorage.instance.ref().child('${contimage.text}.jpg');
+                       final StorageUploadTask task = fbsr.putFile(sampleimage);
+                       var downurl = fbsr.getDownloadURL();
+                      print("the URL for image= ${downurl.toString()}");
+                       */
+                                          },
+                                        ),
+                                        RaisedButton(
+                                          elevation: 7.0,
+                                          child: setUpButtonChild(),
+                                          //  Text("Upload"),
+                                          textColor: Colors.white,
+                                          color: Colors.blue,
+                                          onPressed: () {
+                                            print('stat${state}');
+                                            print('sampleimage${sampleimage}');
+                                            if(sampleimage ==  null) {
+                                              setState(() {
+                                                state = 2;
+                                              });
+                                              addimagedata();
+                                              addimagedatahist();
+
+                                            }
+                                            else if (sampleimage != null){
+                                              setState(() {
+                                                state = 1;
+                                              });
+                                              uploadimage();
+                                            }
+
+                                            setState(() {
+                                              conttypeid.text=(int.parse(conttypeid.text)+1).toString();
+                                              conttypename.text=null;
+                                              conttypedesc.text=null;
+                                              conttypepriceS.text=null;
+                                              conttypename.clear();
+                                              conttypedesc.clear();
+                                              conttypepriceS.clear();
+
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    ),
+
+                                    new Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        IconButton(
+                                          icon: Icon(Icons.camera_roll),
+                                          onPressed: () {
+                                            getImagecamera();
+
+                                            setState(() {
+                                              state = 0;
+                                            });
+                                          },
+                                        ),
+                                        IconButton(
+                                          icon: Icon(Icons.add_a_photo),
+                                          onPressed: () {
+                                            getImagegalary();
+
+                                            setState(() {
+                                              state = 0;
+                                            });
+                                          },
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                )),
+                          ),
+                        ),
+                      ),
+                    ),
+
+                  ],
+                ),
+
+              ],
+            ),
+          )),
+    );
   }
 
 

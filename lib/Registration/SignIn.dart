@@ -230,8 +230,8 @@ class _SignInState extends State<SignIn> {
                       print('inside sign in pass ${_cont_pass1.text}');
 
            //           Navigator.pushNamed(context, '/Height_Profile2');
-                      Navigator.pushNamed(context, '/ProductsMain');
-                     // logInToFb();
+                     // Navigator.pushNamed(context, '/ProductsMain');
+                      logInToFb();
                      // _validateLoginInput();
 
 //                      if(_cont_pass2.text != _cont_pass1.text)

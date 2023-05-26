@@ -152,154 +152,155 @@ class _OrdersEditState extends State<OrdersEdit> {
 
     var appLanguage = Provider.of<AppLanguage>(context);
 
-    return Scaffold(
-      key: _scaffoldKey,
-      // drawer: Appdrawer(),
-      body:
-      Stack(
-        children: <Widget>[
-          //header shape
-          Positioned(
-            top: 0,
-            left: 0,
-            child: Container(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height / 4,
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
-              decoration: BoxDecoration(
-                //borderRadius: BorderRadius.circular(200),
-                //  color: Colors.amber,
-              ),
-              child: CustomPaint(
-                child: Container(
-                  height: 400.0,
+    return SafeArea(
+      child: Scaffold(
+        key: _scaffoldKey,
+        // drawer: Appdrawer(),
+        body:
+        Stack(
+          children: <Widget>[
+            //header shape
+            Positioned(
+              top: 0,
+              left: 0,
+              child: Container(
+                height: MediaQuery
+                    .of(context)
+                    .size
+                    .height / 4,
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width,
+                decoration: BoxDecoration(
+                  //borderRadius: BorderRadius.circular(200),
+                  //  color: Colors.amber,
                 ),
-                painter: _MyPainter(),
-              ),
-            ),
-          ),
-
-          //a
-          Positioned(
-            bottom: -125,
-            left: -150,
-            child: Container(
-              height: 250, //MediaQuery.of(context).size.height / 4,
-              width: 250, //MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(250),
-                color: colorOne,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: -100,
-            right: -115,
-            child: Container(
-              height: 250, //MediaQuery.of(context).size.height / 4,
-              width: 250, //MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(200),
-                  color: colorTwo),
-            ),
-          ),
-          //menu
-          Positioned(
-            top: pheight/25,
-            left: pwidth/20,
-            child: IconButton(
-              icon: Icon(Icons.menu),
-              onPressed: () {
-                print('inside button');
-                // _scaffoldKey.currentState.openDrawer();
-
-                Navigator.pushReplacementNamed(context, "/ProductsMain");
-              },
-            ),
-          ),
-          Positioned(
-            top: pheight/25,
-            right: pwidth/20,
-            child: IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () {
-                print('inside button');
-                // FirebaseAuth.instance.signOut();
-                Navigator.pop(context);
-                //  Navigator.popAndPushNamed(context, "/SignIn");
-
-                //Navigator.pushReplacementNamed(context, "/SignIn");
-              },
-            ),
-          ),
-          //body
-          Positioned(
-            top: MediaQuery
-                .of(context)
-                .size
-                .height/12,
-            right: 10,
-            left:10,
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height >= 775.0
-                  ? MediaQuery.of(context).size.height
-                  : 775.0,
-
-              child:SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(4),
+                child: CustomPaint(
                   child: Container(
-                    height: MediaQuery.of(context).size.height-2,
-                    width: MediaQuery.of(context).size.width,
-                    child: new Center(
-                        child: Column(
-                          children: <Widget>[
-                              TextFormField(
-                                controller: contorderid,
-                                validator: (input) {
-                                  if (input.isEmpty) {
-                                    return 'Please prod Id ';
-                                  }
-                                },
-                                onSaved: (input) => imagename = input,
+                    height: 400.0,
+                  ),
+                  painter: _MyPainter(),
+                ),
+              ),
+            ),
 
-                                decoration: InputDecoration(
-                                  labelText: 'prod id',
-                                ),
-                                // obscureText: true,
-                              ),
-                              TextFormField(
-                                controller: contordername,
-                                validator: (input) {
-                                  if (input.isEmpty) {
-                                    return 'Please Type an Name for Trining';
-                                  }
-                                },
-                                onSaved: (input) => imagename = input,
-                                decoration: InputDecoration(
-                                  labelText: 'Prod Name',
-                                ),
+            //a
+            Positioned(
+              bottom: -125,
+              left: -150,
+              child: Container(
+                height: 250, //MediaQuery.of(context).size.height / 4,
+                width: 250, //MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(250),
+                  color: colorOne,
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: -100,
+              right: -115,
+              child: Container(
+                height: 250, //MediaQuery.of(context).size.height / 4,
+                width: 250, //MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(200),
+                    color: colorTwo),
+              ),
+            ),
+            //menu
+            Positioned(
+              top: pheight/25,
+              left: pwidth/20,
+              child: IconButton(
+                icon: Icon(Icons.menu),
+                onPressed: () {
+                  print('inside button');
+                  // _scaffoldKey.currentState.openDrawer();
 
-                                // obscureText: true,
-                              ),
-                              TextFormField(
-                                controller: contorderdesc,
-                                validator: (input) {
-                                  if (input.isEmpty) {
-                                    return 'Please Type Trining  Desc';
-                                  }
-                                },
-                                onSaved: (input) => imagename = input,
-                                decoration: InputDecoration(labelText: 'Prod Desc'),
-                                // obscureText: true,
-                              ),
-                            ///
+                  Navigator.pushReplacementNamed(context, "/ProductsMain");
+                },
+              ),
+            ),
+            Positioned(
+              top: pheight/25,
+              right: pwidth/20,
+              child: IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  print('inside button');
+                  // FirebaseAuth.instance.signOut();
+                  Navigator.pop(context);
+                  //  Navigator.popAndPushNamed(context, "/SignIn");
+
+                  //Navigator.pushReplacementNamed(context, "/SignIn");
+                },
+              ),
+            ),
+            //body
+            Positioned(
+              top: MediaQuery
+                  .of(context)
+                  .size
+                  .height/12,
+              right: 10,
+              left:10,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height >= 775.0
+                    ? MediaQuery.of(context).size.height
+                    : 775.0,
+
+                child:SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(4),
+                    child: Container(
+                      height: MediaQuery.of(context).size.height-2,
+                      width: MediaQuery.of(context).size.width,
+                      child: new Center(
+                          child: Column(
+                            children: <Widget>[
+                                TextFormField(
+                                  controller: contorderid,
+                                  validator: (input) {
+                                    if (input.isEmpty) {
+                                      return 'Please prod Id ';
+                                    }
+                                  },
+                                  onSaved: (input) => imagename = input,
+
+                                  decoration: InputDecoration(
+                                    labelText: 'prod id',
+                                  ),
+                                  // obscureText: true,
+                                ),
+                                TextFormField(
+                                  controller: contordername,
+                                  validator: (input) {
+                                    if (input.isEmpty) {
+                                      return 'Please Type an Name for Trining';
+                                    }
+                                  },
+                                  onSaved: (input) => imagename = input,
+                                  decoration: InputDecoration(
+                                    labelText: 'Prod Name',
+                                  ),
+
+                                  // obscureText: true,
+                                ),
+                                TextFormField(
+                                  controller: contorderdesc,
+                                  validator: (input) {
+                                    if (input.isEmpty) {
+                                      return 'Please Type Trining  Desc';
+                                    }
+                                  },
+                                  onSaved: (input) => imagename = input,
+                                  decoration: InputDecoration(labelText: 'Prod Desc'),
+                                  // obscureText: true,
+                                ),
+                              ///
 //                              Align(
 //                                alignment: (appLanguage.appLocal.toString() =='ar') ? Alignment.topRight :  Alignment.topLeft,
 //
@@ -320,102 +321,103 @@ class _OrdersEditState extends State<OrdersEdit> {
 //                                      });
 //                                    }),
 //                              ),
-                              TextFormField(
-                                controller: contorderPrice,
-                                validator: (input) {
-                                  if (input.isEmpty) {
-                                    return 'Please Price';
-                                  }
-                                },
-                                onSaved: (input) => imagename = input,
-                                decoration: InputDecoration(labelText: 'Price '),
-                                // obscureText: true,
-                              ),
-                               SizedBox(height: 5.0,),
-                            Align(
+                                TextFormField(
+                                  controller: contorderPrice,
+                                  validator: (input) {
+                                    if (input.isEmpty) {
+                                      return 'Please Price';
+                                    }
+                                  },
+                                  onSaved: (input) => imagename = input,
+                                  decoration: InputDecoration(labelText: 'Price '),
+                                  // obscureText: true,
+                                ),
+                                 SizedBox(height: 5.0,),
+                              Align(
+                                  alignment: (appLanguage.appLocal.toString() =='ar') ? Alignment.topRight :  Alignment.topLeft,
+
+                                  child: new DropdownButton<String>(
+
+                                      items: list_cat.map((String val)
+                                      {
+                                        return new DropdownMenuItem<String>(
+                                          value: val,
+                                          child: new Text(val),
+                                        );
+                                      }).toList(),
+                                      hint: Text(_selectedCat),
+                                      onChanged: (newVal) {
+
+                                        this.setState(() {
+                                          _selectedCat = newVal;
+                                        });
+                                      }),
+                                ),
+                              SizedBox(height: 5.0,),
+                              Align(
                                 alignment: (appLanguage.appLocal.toString() =='ar') ? Alignment.topRight :  Alignment.topLeft,
 
                                 child: new DropdownButton<String>(
 
-                                    items: list_cat.map((String val)
+                                    items: list_status.map((String val)
                                     {
                                       return new DropdownMenuItem<String>(
                                         value: val,
                                         child: new Text(val),
                                       );
                                     }).toList(),
-                                    hint: Text(_selectedCat),
+                                    hint: Text(_selectedstatus),
                                     onChanged: (newVal) {
 
                                       this.setState(() {
-                                        _selectedCat = newVal;
+                                        _selectedstatus = newVal;
                                       });
                                     }),
                               ),
-                            SizedBox(height: 5.0,),
-                            Align(
-                              alignment: (appLanguage.appLocal.toString() =='ar') ? Alignment.topRight :  Alignment.topLeft,
-
-                              child: new DropdownButton<String>(
-
-                                  items: list_status.map((String val)
-                                  {
-                                    return new DropdownMenuItem<String>(
-                                      value: val,
-                                      child: new Text(val),
-                                    );
-                                  }).toList(),
-                                  hint: Text(_selectedstatus),
-                                  onChanged: (newVal) {
-
-                                    this.setState(() {
-                                      _selectedstatus = newVal;
-                                    });
-                                  }),
-                            ),
-                            RaisedButton(
-                              elevation: 7.0,
-                              child: Text('Save'),
-                              // Text("Upload"),
-                              textColor: Colors.white,
-                              color: Red_deep,
-                              onPressed: () {
+                              RaisedButton(
+                                elevation: 7.0,
+                                child: Text('Save'),
+                                // Text("Upload"),
+                                textColor: Colors.white,
+                                color: Red_deep,
+                                onPressed: () {
 
 
 
-                                updateDataonly(widget.Order_doc_id);
+                                  updateDataonly(widget.Order_doc_id);
 
-                                Navigator.of(context).pushReplacement(
-                                  new MaterialPageRoute(
-                                      builder: (BuildContext context) => new OrdersMain()),
-                                );
-                              },
-                            ),
+                                  Navigator.of(context).pushReplacement(
+                                    new MaterialPageRoute(
+                                        builder: (BuildContext context) => new OrdersMain()),
+                                  );
+                                },
+                              ),
 
-                          ],
-                        )),
+                            ],
+                          )),
+                    ),
                   ),
                 ),
+
+
               ),
-
-
             ),
-          ),
-          //header title
-          Positioned(
-            top: MediaQuery.of(context).size.height / 18,
-            left: MediaQuery.of(context).size.width / 2 - 50,
-            child: Text(
-              AppLocalizations.of(context).translate('Details'),
-              style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+            //header title
+            Positioned(
+              top: MediaQuery.of(context).size.height / 18,
+              left: MediaQuery.of(context).size.width / 2 - 50,
+              child: Text(
+                AppLocalizations.of(context).translate('Details'),
+                style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
 
 
 
 
 
-        ],
+          ],
+        ),
       ),
     );
 

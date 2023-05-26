@@ -155,338 +155,340 @@ class _TypeMainState extends State<TypeMain> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(
+      child: Scaffold(
 /*
-      bottomNavigationBar: Material(
-          elevation: 7.0,
-          color: Colors.white,
-          child: Container(
-              height: 50.0,
-              width: MediaQuery.of(context).size.width,
-              color: Colors.white,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Text('Total: \$'  +sumprice.toString()),
-                  SizedBox(width: 10.0),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: RaisedButton(
-                      onPressed: () {
+        bottomNavigationBar: Material(
+            elevation: 7.0,
+            color: Colors.white,
+            child: Container(
+                height: 50.0,
+                width: MediaQuery.of(context).size.width,
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Text('Total: \$'  +sumprice.toString()),
+                    SizedBox(width: 10.0),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: RaisedButton(
+                        onPressed: () {
 
-                      },
-                      elevation: 0.5,
-                      color: Colors.red,
-                      child: Center(
-                        child: Text(
-                          'Pay Now',
+                        },
+                        elevation: 0.5,
+                        color: Colors.red,
+                        child: Center(
+                          child: Text(
+                            'Pay Now',
+                          ),
                         ),
+                        textColor: Colors.white,
                       ),
-                      textColor: Colors.white,
-                    ),
-                  )
-                ],
-              ))),
+                    )
+                  ],
+                ))),
 
 
-      appBar: AppBar(title: Text("Types"),backgroundColor: firstColor,
-        leading: IconButton(icon: Icon(Icons.home),onPressed:() {
-          /*  Navigator.of(context).pushReplacement(new MaterialPageRoute(
-                        builder: (BuildContext context) => new Home()
-                        ),);
+        appBar: AppBar(title: Text("Types"),backgroundColor: firstColor,
+          leading: IconButton(icon: Icon(Icons.home),onPressed:() {
+            /*  Navigator.of(context).pushReplacement(new MaterialPageRoute(
+                          builder: (BuildContext context) => new Home()
+                          ),);
+                          */
+            Navigator.pushNamed(context, "/main_page");
+            // Navigator.pop(context);
+            /*       Navigator.of(context).push(
+                          new MaterialPageRoute(
+                              builder:  (BuildContext context) => new Home2()),
+                        );
                         */
-          Navigator.pushNamed(context, "/main_page");
-          // Navigator.pop(context);
-          /*       Navigator.of(context).push(
-                        new MaterialPageRoute(
-                            builder:  (BuildContext context) => new Home2()),
-                      );
-                      */
-        }),
+          }),
 
-        /*   actions: <Widget>[
-                       IconButton(icon: Icon(Icons.arrow_back_ios),onPressed:() {
-                          Navigator.pushNamed(context, "/homepage");
-                       }),
+          /*   actions: <Widget>[
+                         IconButton(icon: Icon(Icons.arrow_back_ios),onPressed:() {
+                            Navigator.pushNamed(context, "/homepage");
+                         }),
 
-                     ],
-                     */
-      ),
+                       ],
+                       */
+        ),
 */
-      body:
-           Stack(
-             children: <Widget>[
+        body:
+             Stack(
+               children: <Widget>[
 //background
-               Positioned(
-                 top: 0,
-                 left: 0,
-                 child: Container(
-                   height: MediaQuery
-                       .of(context)
-                       .size
-                       .height / 4,
-                   width: MediaQuery
-                       .of(context)
-                       .size
-                       .width,
-                   decoration: BoxDecoration(
-                     //borderRadius: BorderRadius.circular(200),
-                     color: Color(getColorHexFromStr('#FDD110')),
-                   ),
-                 ),
-               ),
-               Positioned(
-                 top: 125,
-                 left: -150,
-                 child: Container(
-                   height: 450, //MediaQuery.of(context).size.height / 4,
-                   width: 450, //MediaQuery.of(context).size.width,
-                   decoration: BoxDecoration(
-                     borderRadius: BorderRadius.circular(250),
-                     color: Color(getColorHexFromStr('#FDD110')),
-                   ),
-                 ),
-               ),
-               Positioned(
-                 top: 100,
-                 left: 115,
-                 child: Container(
-                   height: 350, //MediaQuery.of(context).size.height / 4,
-                   width: 350, //MediaQuery.of(context).size.width,
-                   decoration: BoxDecoration(
-                       borderRadius: BorderRadius.circular(200),
-                       color: Color(
-                         getColorHexFromStr('#FEE16D'),
-                       )),
-                 ),
-               ),
-               Positioned(
-                 bottom: -40,
-                 left: -30,
-                 child:  Container(
-                   height: MediaQuery.of(context).size.height / 3.5,
-                   width: MediaQuery.of(context).size.width/1.5,
-                   decoration: BoxDecoration(
-                     borderRadius: BorderRadius.circular(200),
-                     color: Color(getColorHexFromStr('#FEE16D'),
+                 Positioned(
+                   top: 0,
+                   left: 0,
+                   child: Container(
+                     height: MediaQuery
+                         .of(context)
+                         .size
+                         .height / 4,
+                     width: MediaQuery
+                         .of(context)
+                         .size
+                         .width,
+                     decoration: BoxDecoration(
+                       //borderRadius: BorderRadius.circular(200),
+                       color: Color(getColorHexFromStr('#FDD110')),
                      ),
                    ),
                  ),
-               ),
+                 Positioned(
+                   top: 125,
+                   left: -150,
+                   child: Container(
+                     height: 450, //MediaQuery.of(context).size.height / 4,
+                     width: 450, //MediaQuery.of(context).size.width,
+                     decoration: BoxDecoration(
+                       borderRadius: BorderRadius.circular(250),
+                       color: Color(getColorHexFromStr('#FDD110')),
+                     ),
+                   ),
+                 ),
+                 Positioned(
+                   top: 100,
+                   left: 115,
+                   child: Container(
+                     height: 350, //MediaQuery.of(context).size.height / 4,
+                     width: 350, //MediaQuery.of(context).size.width,
+                     decoration: BoxDecoration(
+                         borderRadius: BorderRadius.circular(200),
+                         color: Color(
+                           getColorHexFromStr('#FEE16D'),
+                         )),
+                   ),
+                 ),
+                 Positioned(
+                   bottom: -40,
+                   left: -30,
+                   child:  Container(
+                     height: MediaQuery.of(context).size.height / 3.5,
+                     width: MediaQuery.of(context).size.width/1.5,
+                     decoration: BoxDecoration(
+                       borderRadius: BorderRadius.circular(200),
+                       color: Color(getColorHexFromStr('#FEE16D'),
+                       ),
+                     ),
+                   ),
+                 ),
 //title
-               Positioned(
-                 top: MediaQuery
-                     .of(context)
-                     .size
-                     .height/20,
-                 left: MediaQuery
-                     .of(context)
-                     .size
-                     .width / 2 - 70,
-                 child: Text(
-                   'Types List',
-                   style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+                 Positioned(
+                   top: MediaQuery
+                       .of(context)
+                       .size
+                       .height/20,
+                   left: MediaQuery
+                       .of(context)
+                       .size
+                       .width / 2 - 70,
+                   child: Text(
+                     'Types List',
+                     style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+                   ),
                  ),
-               ),
-               //menu
-               Positioned(
-                 top: MediaQuery
-                     .of(context)
-                     .size
-                     .height/40,
-                 left: 20,
-                 child: IconButton(
-                   icon: Icon(Icons.menu),
-                   onPressed: () {
-                     print('inside button');
-                    // _scaffoldKey.currentState.openDrawer();
+                 //menu
+                 Positioned(
+                   top: MediaQuery
+                       .of(context)
+                       .size
+                       .height/40,
+                   left: 20,
+                   child: IconButton(
+                     icon: Icon(Icons.menu),
+                     onPressed: () {
+                       print('inside button');
+                      // _scaffoldKey.currentState.openDrawer();
 
-                      Navigator.pushNamed(context, "/ProductsMain");
-                   },
+                        Navigator.pushNamed(context, "/ProductsMain");
+                     },
+                   ),
                  ),
-               ),
-               Positioned(
-                 top: MediaQuery
-                     .of(context)
-                     .size
-                     .height/40,
-                 right: 20,
-                 child: IconButton(
-                   icon: Icon(Icons.add),
-                   onPressed: () {
-                     print('inside button');
-                     // _scaffoldKey.currentState.openDrawer();
+                 Positioned(
+                   top: MediaQuery
+                       .of(context)
+                       .size
+                       .height/40,
+                   right: 20,
+                   child: IconButton(
+                     icon: Icon(Icons.add),
+                     onPressed: () {
+                       print('inside button');
+                       // _scaffoldKey.currentState.openDrawer();
 
-                     Navigator.of(context).push(
-                       new MaterialPageRoute(
-                           builder:  (BuildContext context) => new TypesADD(prod_max)),
-                     );
+                       Navigator.of(context).push(
+                         new MaterialPageRoute(
+                             builder:  (BuildContext context) => new TypesADD(prod_max)),
+                       );
 
-                   },
+                     },
+                   ),
                  ),
-               ),
 //list
-               Positioned(
-                 top: MediaQuery
-                     .of(context)
-                     .size
-                     .height/5,
-                 left: 5,
-                 right: 5,
-                 bottom:50,
-                 child:
-                      Container(
-                       height: MediaQuery
-                           .of(context)
-                           .size.height-30,
-                       width: MediaQuery
-                           .of(context)
-                           .size.width-30,
-                       child:_BuildList(),
+                 Positioned(
+                   top: MediaQuery
+                       .of(context)
+                       .size
+                       .height/5,
+                   left: 5,
+                   right: 5,
+                   bottom:50,
+                   child:
+                        Container(
+                         height: MediaQuery
+                             .of(context)
+                             .size.height-30,
+                         width: MediaQuery
+                             .of(context)
+                             .size.width-30,
+                         child:_BuildList(),
 //                       ListView.builder(
 //                        itemCount: Typeslist.length,
 //                        itemBuilder: (BuildContext context,int index){
 //                          return build_item(context,index);
 //
-                      //  }
+                        //  }
 
-                     //),
-
-
-                 ),
-               ),
+                       //),
 
 
-            //search
-               Positioned(
-                 top:  MediaQuery
-                     .of(context)
-                     .size
-                     .height/9,
-                 left: 10,
-                 right: 10,
-
-                 // left: MediaQuery.of(context).size.width / 2 - 70,
-                 child:
-
-                 Column(
-                   children: [
-                 Container(
-                       height: 50,
-                       width: MediaQuery
-                           .of(context)
-                           .size
-                           .width - 30,
-                       child: Material(
-
-                         elevation: 5.0,
-                         borderRadius: BorderRadius.circular(5.0),
-                         child: TextField(
-                           controller: contsearch,
-                             onChanged: (value) {
-                               print('inside change$value');
-                               filterSearchResults(value);
-                               gettypetotalprice();
-                             },
-                             decoration: InputDecoration(
-                                 border: InputBorder.none,
-                                 prefixIcon: Icon(Icons.search,
-                                     color:Color(getColorHexFromStr('#FEE16D')),
-                                     size: 30.0),
-                                 suffixIcon: IconButton(icon: Icon(Icons.cancel,
-                                     color: Color(getColorHexFromStr('#FEE16D')),
-                                     size: 30.0)
-                                     , onPressed: (){
-                                       print('inside clear');
-                                       contsearch.clear();
-                                       contsearch.text=null;
-                                       filterSearchResults(contsearch.text);
-                                       gettypetotalprice();
-
-                                     }),
-                                 contentPadding:
-                                 EdgeInsets.only(left: 15.0, top: 15.0),
-                                 hintText: 'Search',
-                                 hintStyle: TextStyle(
-                                     color: Colors.grey,
-                                     fontFamily: 'Quicksand'))),
-                       ),
-                     ),
-                     Padding(
-                       padding: const EdgeInsets.only(left:8.0,bottom:8),
-                       child: Row(
-                         mainAxisAlignment: MainAxisAlignment.start,
-                         children: [
-                           Text('Month : '),
-                           Align(
-                             alignment: Alignment.topLeft,
-                             child: DropdownButton<String>(
-
-                                 items: list_cat.map((String val)
-                                 {
-                                   return new DropdownMenuItem<String>(
-                                     value: val,
-                                     child: new Text(val),
-                                   );
-                                 }).toList(),
-                                 hint: Text(_selectedCat),
-                                 onChanged: (newVal) {
-
-                                   this.setState(() {
-                                     _selectedCat = newVal;
-                                     filterSearchMonth(_selectedCat.toString());
-                                   });
-                                 }),
-                           ),
-                         ],
-                       ),
-                     ),
-                   ],
-
+                   ),
                  ),
 
-               ),
-               Positioned(
-                 bottom: 0,
-                 child: Material(
-                     elevation: 7.0,
-                     color: Colors.white,
-                     child: Container(
-                         height: 55.0,
-                         width: MediaQuery.of(context).size.width,
-                         color: Colors.white,
+
+              //search
+                 Positioned(
+                   top:  MediaQuery
+                       .of(context)
+                       .size
+                       .height/9,
+                   left: 10,
+                   right: 10,
+
+                   // left: MediaQuery.of(context).size.width / 2 - 70,
+                   child:
+
+                   Column(
+                     children: [
+                   Container(
+                         height: 50,
+                         width: MediaQuery
+                             .of(context)
+                             .size
+                             .width - 30,
+                         child: Material(
+
+                           elevation: 5.0,
+                           borderRadius: BorderRadius.circular(5.0),
+                           child: TextField(
+                             controller: contsearch,
+                               onChanged: (value) {
+                                 print('inside change$value');
+                                 filterSearchResults(value);
+                                 gettypetotalprice();
+                               },
+                               decoration: InputDecoration(
+                                   border: InputBorder.none,
+                                   prefixIcon: Icon(Icons.search,
+                                       color:Color(getColorHexFromStr('#FEE16D')),
+                                       size: 30.0),
+                                   suffixIcon: IconButton(icon: Icon(Icons.cancel,
+                                       color: Color(getColorHexFromStr('#FEE16D')),
+                                       size: 30.0)
+                                       , onPressed: (){
+                                         print('inside clear');
+                                         contsearch.clear();
+                                         contsearch.text=null;
+                                         filterSearchResults(contsearch.text);
+                                         gettypetotalprice();
+
+                                       }),
+                                   contentPadding:
+                                   EdgeInsets.only(left: 15.0, top: 15.0),
+                                   hintText: 'Search',
+                                   hintStyle: TextStyle(
+                                       color: Colors.grey,
+                                       fontFamily: 'Quicksand'))),
+                         ),
+                       ),
+                       Padding(
+                         padding: const EdgeInsets.only(left:8.0,bottom:8),
                          child: Row(
-                           mainAxisAlignment: MainAxisAlignment.end,
-                           children: <Widget>[
+                           mainAxisAlignment: MainAxisAlignment.start,
+                           children: [
+                             Text('Month : '),
+                             Align(
+                               alignment: Alignment.topLeft,
+                               child: DropdownButton<String>(
 
+                                   items: list_cat.map((String val)
+                                   {
+                                     return new DropdownMenuItem<String>(
+                                       value: val,
+                                       child: new Text(val),
+                                     );
+                                   }).toList(),
+                                   hint: Text(_selectedCat),
+                                   onChanged: (newVal) {
 
-
-                             Padding(
-                               padding: const EdgeInsets.all(8.0),
-                               child: RaisedButton(
-                                 onPressed: () {
-
-                                 },
-                                 elevation: 0.5,
-                                 color: Colors.red,
-                                 child: Center(
-                                   child: Text(
-                                       'Total: \$'  +sumprice.toString(),
-                                   ),
-                                 ),
-                                 textColor: Colors.white,
-                               ),
+                                     this.setState(() {
+                                       _selectedCat = newVal;
+                                       filterSearchMonth(_selectedCat.toString());
+                                     });
+                                   }),
                              ),
-
                            ],
-                         ))),
-               )
+                         ),
+                       ),
+                     ],
 
-    ],
-      ),
+                   ),
+
+                 ),
+                 Positioned(
+                   bottom: 0,
+                   child: Material(
+                       elevation: 7.0,
+                       color: Colors.white,
+                       child: Container(
+                           height: 55.0,
+                           width: MediaQuery.of(context).size.width,
+                           color: Colors.white,
+                           child: Row(
+                             mainAxisAlignment: MainAxisAlignment.end,
+                             children: <Widget>[
 
 
-);
+
+                               Padding(
+                                 padding: const EdgeInsets.all(8.0),
+                                 child: RaisedButton(
+                                   onPressed: () {
+
+                                   },
+                                   elevation: 0.5,
+                                   color: Colors.red,
+                                   child: Center(
+                                     child: Text(
+                                         'Total: \$'  +sumprice.toString(),
+                                     ),
+                                   ),
+                                   textColor: Colors.white,
+                                 ),
+                               ),
+
+                             ],
+                           ))),
+                 )
+
+      ],
+        ),
+
+
+),
+    );
 
 
   }

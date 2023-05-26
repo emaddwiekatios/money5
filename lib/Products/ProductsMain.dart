@@ -186,7 +186,8 @@ void subscripetotoken()
       final FirebaseFirestore _db = FirebaseFirestore.instance;
       // Get the current user
       User  puser =await getCurrentUser();
-      String uid = puser.uid.toString() ;
+
+      String uid = puser.uid ?? puser.email;
       // FirebaseUser user = await _auth.currentUser();
 
       // Get the token for this device
@@ -334,167 +335,169 @@ void subscripetotoken()
     var pwidth = MediaQuery.of(context).size.width;
 
     var appLanguage = Provider.of<AppLanguage>(context);
-    return Scaffold(
-      key: _scrffordkey,
-      drawer: Appdrawer(),
-      backgroundColor: Colors.white,
-      body: Stack(
-        children: <Widget>[
+    return SafeArea(
+      child: Scaffold(
+        key: _scrffordkey,
+        drawer: Appdrawer(),
+        backgroundColor: Colors.white,
+        body: Stack(
+          children: <Widget>[
 //background
-          Positioned(
-            top: 0,
-            left: 0,
-            child: Container(
-              height: MediaQuery.of(context).size.height / 4,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                //borderRaOdius: BorderRadius.circular(200),
-                color: pcolor2,
+            Positioned(
+              top: 0,
+              left: 0,
+              child: Container(
+                height: MediaQuery.of(context).size.height / 4,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  //borderRaOdius: BorderRadius.circular(200),
+                  color: pcolor2,
+                ),
               ),
             ),
-          ),
-          Positioned(
-            top: 125,
-            left: -150,
-            child: Container(
-              height: 450, //MediaQuery.of(context).size.height / 4,
-              width: 450, //MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(250),
-                color:pcolor3,// Color(getColorHexFromStr('#FDD110')),
+            Positioned(
+              top: 125,
+              left: -150,
+              child: Container(
+                height: 450, //MediaQuery.of(context).size.height / 4,
+                width: 450, //MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(250),
+                  color:pcolor3,// Color(getColorHexFromStr('#FDD110')),
+                ),
               ),
             ),
-          ),
-          Positioned(
-            top: 100,
-            left: 115,
-            child: Container(
-              height: 350, //MediaQuery.of(context).size.height / 4,
-              width: 350, //MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
+            Positioned(
+              top: 100,
+              left: 115,
+              child: Container(
+                height: 350, //MediaQuery.of(context).size.height / 4,
+                width: 350, //MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(200),
+                    color: pcolor1,//red2,
+              //      )
+              ),
+              ),
+            ),
+            Positioned(
+              bottom: -40,
+              left: -30,
+              child: Container(
+                height: MediaQuery.of(context).size.height / 3.5,
+                width: MediaQuery.of(context).size.width / 1.5,
+                decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(200),
-                  color: pcolor1,//red2,
-            //      )
-            ),
-            ),
-          ),
-          Positioned(
-            bottom: -40,
-            left: -30,
-            child: Container(
-              height: MediaQuery.of(context).size.height / 3.5,
-              width: MediaQuery.of(context).size.width / 1.5,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(200),
-                color: pcolor4,//red2,
-                //),
+                  color: pcolor4,//red2,
+                  //),
+                ),
               ),
             ),
-          ),
 //title
-          Positioned(
-            top: MediaQuery.of(context).size.height / 22,
-            left: MediaQuery.of(context).size.width / 2 - 40,
-            child: Text(
-              AppLocalizations.of(context).translate('docs'),
-              style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
-            ),
-          ),
-          //menu
-          Positioned(
-            top: pheight / 30,
-            left: pwidth / 20,
-            child: IconButton(
-              icon: Icon(
-                Icons.menu,
-                size: 30,
+            Positioned(
+              top: MediaQuery.of(context).size.height / 22,
+              left: MediaQuery.of(context).size.width / 2 - 40,
+              child: Text(
+                AppLocalizations.of(context).translate('docs'),
+                style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
               ),
-              onPressed: () {
-           print('inside menu');
-                _scrffordkey.currentState.openDrawer();
-             //   FirebaseAuth.instance.signOut();
-               // Navigator.pushReplacementNamed(context, "/RegistrationWelcome");
-              },
             ),
-          ),
-          Positioned(
-            top: pheight / 30,
-            right: pwidth / 20,
-            child: IconButton(
-              icon: Icon(Icons.add, size: 30),
-              onPressed: () {
-
-                // _scaffoldKey.currentState.openDrawer();
-
-                Navigator.of(context).push(
-                  new MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                          new ProductAddSt(Docs_max: Docs_max)),
-                );
-              },
+            //menu
+            Positioned(
+              top: pheight / 30,
+              left: pwidth / 20,
+              child: IconButton(
+                icon: Icon(
+                  Icons.menu,
+                  size: 30,
+                ),
+                onPressed: () {
+             print('inside menu');
+                  _scrffordkey.currentState.openDrawer();
+               //   FirebaseAuth.instance.signOut();
+                 // Navigator.pushReplacementNamed(context, "/RegistrationWelcome");
+                },
+              ),
             ),
-          ),
+            Positioned(
+              top: pheight / 30,
+              right: pwidth / 20,
+              child: IconButton(
+                icon: Icon(Icons.add, size: 30),
+                onPressed: () {
+
+                  // _scaffoldKey.currentState.openDrawer();
+
+                  Navigator.of(context).push(
+                    new MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            new ProductAddSt(Docs_max: Docs_max)),
+                  );
+                },
+              ),
+            ),
 //list
-          Positioned(
-            top: MediaQuery.of(context).size.height / 6,
-            left: 5,
-            right: 5,
-            bottom: 10,
-            child: Container(
-              height: MediaQuery.of(context).size.height - 30,
-              width: MediaQuery.of(context).size.width - 30,
-              child: _BuildList(),
+            Positioned(
+              top: MediaQuery.of(context).size.height / 6,
+              left: 5,
+              right: 5,
+              bottom: 10,
+              child: Container(
+                height: MediaQuery.of(context).size.height - 30,
+                width: MediaQuery.of(context).size.width - 30,
+                child: _BuildList(),
 
-            ),
-          ),
-
-          //search
-          Positioned(
-            top: MediaQuery.of(context).size.height / 9,
-            left: 10,
-            right: 10,
-
-            // left: MediaQuery.of(context).size.width / 2 - 70,
-            child: Container(
-              height: 50,
-              width: MediaQuery.of(context).size.width - 30,
-              child: Material(
-                elevation: 5.0,
-                borderRadius: BorderRadius.circular(5.0),
-                child: TextField(
-                    controller: contsearch,
-                    onChanged: (value) {
-                      print('inside change$value');
-                      filterSearchResults(value);
-                      gettypetotalprice();
-                    },
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        prefixIcon: Icon(Icons.search,
-                            color: pcolor2,
-                            size: 30.0),
-                        suffixIcon: IconButton(
-                            icon: Icon(Icons.cancel,
-                                color: pcolor2,
-                                size: 30.0),
-                            onPressed: () {
-                              print('inside clear');
-                              contsearch.clear();
-                              contsearch.text = null;
-                              filterSearchResults(contsearch.text);
-                              gettypetotalprice();
-                            }),
-                        contentPadding: EdgeInsets.only(left: 15.0, top: 15.0),
-                        hintText:AppLocalizations.of(context).translate('Search') ,
-                        hintStyle: TextStyle(
-                            color: Colors.grey, fontFamily: 'Quicksand'))),
               ),
             ),
-          ),
+
+            //search
+            Positioned(
+              top: MediaQuery.of(context).size.height / 9,
+              left: 10,
+              right: 10,
+
+              // left: MediaQuery.of(context).size.width / 2 - 70,
+              child: Container(
+                height: 50,
+                width: MediaQuery.of(context).size.width - 30,
+                child: Material(
+                  elevation: 5.0,
+                  borderRadius: BorderRadius.circular(5.0),
+                  child: TextField(
+                      controller: contsearch,
+                      onChanged: (value) {
+                        print('inside change$value');
+                        filterSearchResults(value);
+                        gettypetotalprice();
+                      },
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          prefixIcon: Icon(Icons.search,
+                              color: pcolor2,
+                              size: 30.0),
+                          suffixIcon: IconButton(
+                              icon: Icon(Icons.cancel,
+                                  color: pcolor2,
+                                  size: 30.0),
+                              onPressed: () {
+                                print('inside clear');
+                                contsearch.clear();
+                                contsearch.text = null;
+                                filterSearchResults(contsearch.text);
+                                gettypetotalprice();
+                              }),
+                          contentPadding: EdgeInsets.only(left: 15.0, top: 15.0),
+                          hintText:AppLocalizations.of(context).translate('Search') ,
+                          hintStyle: TextStyle(
+                              color: Colors.grey, fontFamily: 'Quicksand'))),
+                ),
+              ),
+            ),
 
 
 
-        ],
+          ],
+        ),
       ),
     );
 

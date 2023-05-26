@@ -116,203 +116,204 @@ class _ProductsEditNewState extends State<ProductsEditNew> {
 
     var appLanguage = Provider.of<AppLanguage>(context);
 
-    return Scaffold(
-      key: _scaffoldKey,
-      // drawer: Appdrawer(),
-      body:
-      GestureDetector(
-        onTap: (){
-          print('ontap');
-          FocusScopeNode currentFocus = FocusScope.of(context);
+    return SafeArea(
+      child: Scaffold(
+        key: _scaffoldKey,
+        // drawer: Appdrawer(),
+        body:
+        GestureDetector(
+          onTap: (){
+            print('ontap');
+            FocusScopeNode currentFocus = FocusScope.of(context);
 
-          if (!currentFocus.hasPrimaryFocus) {
-            currentFocus.unfocus();
-          }
-        },
-        child: Stack(
-          children: <Widget>[
-            //header shape
-            Positioned(
-              top: 0,
-              left: 0,
-              child: Container(
-                height: MediaQuery
-                    .of(context)
-                    .size
-                    .height / 4,
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width,
-                decoration: BoxDecoration(
-                  //borderRadius: BorderRadius.circular(200),
-                  //  color: Colors.amber,
-                ),
-                child: CustomPaint(
-                  child: Container(
-                    height: 400.0,
+            if (!currentFocus.hasPrimaryFocus) {
+              currentFocus.unfocus();
+            }
+          },
+          child: Stack(
+            children: <Widget>[
+              //header shape
+              Positioned(
+                top: 0,
+                left: 0,
+                child: Container(
+                  height: MediaQuery
+                      .of(context)
+                      .size
+                      .height / 4,
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width,
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(200),
+                    //  color: Colors.amber,
                   ),
-                  painter: _MyPainter(),
-                ),
-              ),
-            ),
-
-            //a
-            Positioned(
-              bottom: -125,
-              left: -150,
-              child: Container(
-                height: 250, //MediaQuery.of(context).size.height / 4,
-                width: 250, //MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(250),
-                  color: pcolor1,
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: -100,
-              right: -115,
-              child: Container(
-                height: 250, //MediaQuery.of(context).size.height / 4,
-                width: 250, //MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(200),
-                    color: pcolor2),
-              ),
-            ),
-            //menu
-            Positioned(
-              top: pheight/25,
-              left: pwidth/20,
-              child: IconButton(
-                icon: Icon(Icons.menu),
-                onPressed: () {
-                  print('inside button');
-                  // _scaffoldKey.currentState.openDrawer();
-
-                  Navigator.pushReplacementNamed(context, "/ProductsMain");
-                },
-              ),
-            ),
-            Positioned(
-              top: pheight/25,
-              right: pwidth/20,
-              child: IconButton(
-                icon: Icon(Icons.arrow_back),
-                onPressed: () {
-                  print('inside button');
-                  // FirebaseAuth.instance.signOut();
-                  Navigator.pop(context);
-                  //  Navigator.popAndPushNamed(context, "/SignIn");
-
-                  //Navigator.pushReplacementNamed(context, "/SignIn");
-                },
-              ),
-            ),
-            //body
-            Positioned(
-              top: MediaQuery
-                  .of(context)
-                  .size
-                  .height/12,
-              right: 10,
-              left:10,
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height >= 775.0
-                    ? MediaQuery.of(context).size.height
-                    : 775.0,
-
-                child:SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.all(4),
+                  child: CustomPaint(
                     child: Container(
-                      height: MediaQuery.of(context).size.height-2,
-                      width: MediaQuery.of(context).size.width,
-                      child: new Center(
-                          child: Column(
-                            children: <Widget>[
-                              TextFormField(
-                                controller: contprodid,
-                                validator: (input) {
-                                  if (input.isEmpty) {
-                                    return 'Please prod Id ';
-                                  }
-                                },
-                                onSaved: (input) => imagename = input,
+                      height: 400.0,
+                    ),
+                    painter: _MyPainter(),
+                  ),
+                ),
+              ),
 
-                                decoration: InputDecoration(
-                                  labelText: 'prod id',
+              //a
+              Positioned(
+                bottom: -125,
+                left: -150,
+                child: Container(
+                  height: 250, //MediaQuery.of(context).size.height / 4,
+                  width: 250, //MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(250),
+                    color: pcolor1,
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: -100,
+                right: -115,
+                child: Container(
+                  height: 250, //MediaQuery.of(context).size.height / 4,
+                  width: 250, //MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(200),
+                      color: pcolor2),
+                ),
+              ),
+              //menu
+              Positioned(
+                top: pheight/25,
+                left: pwidth/20,
+                child: IconButton(
+                  icon: Icon(Icons.menu),
+                  onPressed: () {
+                    print('inside button');
+                    // _scaffoldKey.currentState.openDrawer();
+
+                    Navigator.pushReplacementNamed(context, "/ProductsMain");
+                  },
+                ),
+              ),
+              Positioned(
+                top: pheight/25,
+                right: pwidth/20,
+                child: IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () {
+                    print('inside button');
+                    // FirebaseAuth.instance.signOut();
+                    Navigator.pop(context);
+                    //  Navigator.popAndPushNamed(context, "/SignIn");
+
+                    //Navigator.pushReplacementNamed(context, "/SignIn");
+                  },
+                ),
+              ),
+              //body
+              Positioned(
+                top: MediaQuery
+                    .of(context)
+                    .size
+                    .height/12,
+                right: 10,
+                left:10,
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height >= 775.0
+                      ? MediaQuery.of(context).size.height
+                      : 775.0,
+
+                  child:SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height-2,
+                        width: MediaQuery.of(context).size.width,
+                        child: new Center(
+                            child: Column(
+                              children: <Widget>[
+                                TextFormField(
+                                  controller: contprodid,
+                                  validator: (input) {
+                                    if (input.isEmpty) {
+                                      return 'Please prod Id ';
+                                    }
+                                  },
+                                  onSaved: (input) => imagename = input,
+
+                                  decoration: InputDecoration(
+                                    labelText: 'prod id',
+                                  ),
+                                  // obscureText: true,
                                 ),
-                                // obscureText: true,
-                              ),
-                              TextFormField(
-                                controller: contprodname ,
-                                validator: (input) {
-                                  if (input.isEmpty) {
-                                    return 'Please Type an Name for Trining';
-                                  }
-                                },
-                                onSaved: (input) => imagename = input,
-                                decoration: InputDecoration(
-                                  labelText: 'Prod Name',
+                                TextFormField(
+                                  controller: contprodname ,
+                                  validator: (input) {
+                                    if (input.isEmpty) {
+                                      return 'Please Type an Name for Trining';
+                                    }
+                                  },
+                                  onSaved: (input) => imagename = input,
+                                  decoration: InputDecoration(
+                                    labelText: 'Prod Name',
+                                  ),
+
+                                  // obscureText: true,
                                 ),
+                                TextFormField(
+                                  controller: contproddesc,
+                                  validator: (input) {
+                                    if (input.isEmpty) {
+                                      return 'Please Type Trining  Desc';
+                                    }
+                                  },
+                                  onSaved: (input) => imagename = input,
+                                  decoration: InputDecoration(labelText: 'Prod Desc'),
+                                  // obscureText: true,
+                                ),
+                                ///
+                                Align(
+                                  alignment: (appLanguage.appLocal.toString() =='ar') ? Alignment.topRight :  Alignment.topLeft,
 
-                                // obscureText: true,
-                              ),
-                              TextFormField(
-                                controller: contproddesc,
-                                validator: (input) {
-                                  if (input.isEmpty) {
-                                    return 'Please Type Trining  Desc';
-                                  }
-                                },
-                                onSaved: (input) => imagename = input,
-                                decoration: InputDecoration(labelText: 'Prod Desc'),
-                                // obscureText: true,
-                              ),
-                              ///
-                              Align(
-                                alignment: (appLanguage.appLocal.toString() =='ar') ? Alignment.topRight :  Alignment.topLeft,
+                                  child: new DropdownButton<String>(
 
-                                child: new DropdownButton<String>(
+                                      items: list_cat.map((String val)
+                                      {
+                                        return new DropdownMenuItem<String>(
+                                          value: val,
+                                          child: new Text(val),
+                                        );
+                                      }).toList(),
+                                      hint: Text(_selectedCat),
+                                      onChanged: (newVal) {
 
-                                    items: list_cat.map((String val)
-                                    {
-                                      return new DropdownMenuItem<String>(
-                                        value: val,
-                                        child: new Text(val),
-                                      );
-                                    }).toList(),
-                                    hint: Text(_selectedCat),
-                                    onChanged: (newVal) {
-
-                                      this.setState(() {
-                                        _selectedCat = newVal;
-                                      });
-                                    }),
-                              ),
-                              TextFormField(
-                                controller: contprodPrice,
-                                validator: (input) {
-                                  if (input.isEmpty) {
-                                    return 'Please Price';
-                                  }
-                                },
-                                onSaved: (input) => imagename = input,
-                                decoration: InputDecoration(labelText: 'Price '),
-                                // obscureText: true,
-                              ),
+                                        this.setState(() {
+                                          _selectedCat = newVal;
+                                        });
+                                      }),
+                                ),
+                                TextFormField(
+                                  controller: contprodPrice,
+                                  validator: (input) {
+                                    if (input.isEmpty) {
+                                      return 'Please Price';
+                                    }
+                                  },
+                                  onSaved: (input) => imagename = input,
+                                  decoration: InputDecoration(labelText: 'Price '),
+                                  // obscureText: true,
+                                ),
 //
 //
 //
-                             SizedBox(height: 5.0,),
+                               SizedBox(height: 5.0,),
 //                              //Image.network(widget.prodimg),
 //                              //enableupload(),
 //
 //                              //sampleimage  != null ? Text("Select an image") : enableupload(),
-                              enableupload(),
+                                enableupload(),
 //                              new Row(
 //                                mainAxisAlignment: MainAxisAlignment.center,
 //                                children: <Widget>[
@@ -338,31 +339,32 @@ class _ProductsEditNewState extends State<ProductsEditNew> {
 //                                  )
 //                                ],
 //                              )
-                            ],
-                          )),
+                              ],
+                            )),
+                      ),
                     ),
                   ),
+
+
                 ),
-
-
               ),
-            ),
-            //header title
-            Positioned(
-              top: MediaQuery.of(context).size.height / 18,
-              left: MediaQuery.of(context).size.width / 2 - 50,
-              child: Text(
-                AppLocalizations.of(context).translate('Details'),
-                style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+              //header title
+              Positioned(
+                top: MediaQuery.of(context).size.height / 18,
+                left: MediaQuery.of(context).size.width / 2 - 50,
+                child: Text(
+                  AppLocalizations.of(context).translate('Details'),
+                  style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
 
 
 
 
 
 
-          ],
+            ],
+          ),
         ),
       ),
     );

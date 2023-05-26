@@ -194,260 +194,262 @@ class _OrdersMainState extends State<OrdersMain>
     var pwidth = MediaQuery.of(context).size.width;
 
     var appLanguage = Provider.of<AppLanguage>(context);
-    return Scaffold(
-      key: _scrffordkey,
-      backgroundColor: Colors.white,
-      body: Stack(
-        children: <Widget>[
+    return SafeArea(
+      child: Scaffold(
+        key: _scrffordkey,
+        backgroundColor: Colors.white,
+        body: Stack(
+          children: <Widget>[
 //background
-          Positioned(
-            top: 0,
-            left: 0,
-            child: Container(
-              height: MediaQuery.of(context).size.height / 4,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                //borderRaOdius: BorderRadius.circular(200),
-                color: pcolor2,
+            Positioned(
+              top: 0,
+              left: 0,
+              child: Container(
+                height: MediaQuery.of(context).size.height / 4,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  //borderRaOdius: BorderRadius.circular(200),
+                  color: pcolor2,
+                ),
               ),
             ),
-          ),
-          Positioned(
-            top: 125,
-            left: -150,
-            child: Container(
-              height: 450, //MediaQuery.of(context).size.height / 4,
-              width: 450, //MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(250),
-                color: pcolor3, // Color(getColorHexFromStr('#FDD110')),
+            Positioned(
+              top: 125,
+              left: -150,
+              child: Container(
+                height: 450, //MediaQuery.of(context).size.height / 4,
+                width: 450, //MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(250),
+                  color: pcolor3, // Color(getColorHexFromStr('#FDD110')),
+                ),
               ),
             ),
-          ),
-          Positioned(
-            top: 100,
-            left: 115,
-            child: Container(
-              height: 350, //MediaQuery.of(context).size.height / 4,
-              width: 350, //MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(200),
-                color: pcolor1, //red2,
-                //      )
+            Positioned(
+              top: 100,
+              left: 115,
+              child: Container(
+                height: 350, //MediaQuery.of(context).size.height / 4,
+                width: 350, //MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(200),
+                  color: pcolor1, //red2,
+                  //      )
+                ),
               ),
             ),
-          ),
-          Positioned(
-            bottom: -40,
-            left: -30,
-            child: Container(
-              height: MediaQuery.of(context).size.height / 3.5,
-              width: MediaQuery.of(context).size.width / 1.5,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(200),
-                color: pcolor4, //red2,
-                //),
+            Positioned(
+              bottom: -40,
+              left: -30,
+              child: Container(
+                height: MediaQuery.of(context).size.height / 3.5,
+                width: MediaQuery.of(context).size.width / 1.5,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(200),
+                  color: pcolor4, //red2,
+                  //),
+                ),
               ),
             ),
-          ),
 //title
-          Positioned(
-            top: MediaQuery.of(context).size.height / 22,
-            left: MediaQuery.of(context).size.width / 2 - 40,
-            child: Text(
-              AppLocalizations.of(context).translate('Orders'),
-              style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
-            ),
-          ),
-          //menu
-          Positioned(
-            top: pheight / 30,
-            left: pwidth / 20,
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_back,
-                size: 30,
+            Positioned(
+              top: MediaQuery.of(context).size.height / 22,
+              left: MediaQuery.of(context).size.width / 2 - 40,
+              child: Text(
+                AppLocalizations.of(context).translate('Orders'),
+                style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
               ),
-              onPressed: () {
-                print('inside menu');
-               // Navigator.pop(context);
-                // _scrffordkey.currentState.openDrawer();
-                //   FirebaseAuth.instance.signOut();
-                 Navigator.pushReplacementNamed(context, "/ProductsMain");
-              },
             ),
-          ),
-          Positioned(
-            top: pheight / 30,
-            right: pwidth / 20,
-            child: IconButton(
-              icon: Icon(Icons.add, size: 30),
-              onPressed: () {
-                // _scaffoldKey.currentState.openDrawer();
+            //menu
+            Positioned(
+              top: pheight / 30,
+              left: pwidth / 20,
+              child: IconButton(
+                icon: Icon(
+                  Icons.arrow_back,
+                  size: 30,
+                ),
+                onPressed: () {
+                  print('inside menu');
+                 // Navigator.pop(context);
+                  // _scrffordkey.currentState.openDrawer();
+                  //   FirebaseAuth.instance.signOut();
+                   Navigator.pushReplacementNamed(context, "/ProductsMain");
+                },
+              ),
+            ),
+            Positioned(
+              top: pheight / 30,
+              right: pwidth / 20,
+              child: IconButton(
+                icon: Icon(Icons.add, size: 30),
+                onPressed: () {
+                  // _scaffoldKey.currentState.openDrawer();
 
-                Navigator.of(context).push(
-                  new MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                          new OrdersAdd(Order_max: Orders_max)),
-                );
-              },
+                  Navigator.of(context).push(
+                    new MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            new OrdersAdd(Order_max: Orders_max)),
+                  );
+                },
+              ),
             ),
-          ),
 //list
-          Positioned(
-            top: MediaQuery.of(context).size.height / 6.5,
-            left: 5,
-            right: 5,
-            bottom: 10,
-            child: DefaultTabController(
-              length: 4,
-              child: new Scaffold(
-                appBar: new PreferredSize(
-                  preferredSize: Size.fromHeight(50.0),
-                  child: new Container(
-                    color: pcolor4,
-                    child: new SafeArea(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          // new Expanded(child: new Container(height: 5,)),
-                          new TabBar(
+            Positioned(
+              top: MediaQuery.of(context).size.height / 5.5,
+              left: 5,
+              right: 5,
+              bottom: 10,
+              child: DefaultTabController(
+                length: 4,
+                child: new Scaffold(
+                  appBar: new PreferredSize(
+                    preferredSize: Size.fromHeight(50.0),
+                    child: new Container(
+                      color: pcolor4,
+                      child: new SafeArea(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            // new Expanded(child: new Container(height: 5,)),
+                            new TabBar(
 
-                            controller: tabController,
-                            labelColor: Colors.redAccent,
-                            unselectedLabelColor: Colors.white,
-                            indicatorSize: TabBarIndicatorSize.label,
-                            indicator: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10),
-                                    topRight: Radius.circular(10)),
-                                color: Colors.white),
+                              controller: tabController,
+                              labelColor: Colors.redAccent,
+                              unselectedLabelColor: Colors.white,
+                              indicatorSize: TabBarIndicatorSize.label,
+                              indicator: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(10),
+                                      topRight: Radius.circular(10)),
+                                  color: Colors.white),
 
-                            tabs: [
-                              new Tab(
-                                  icon: IconButton(
-                                  icon: Text('All',style: TextStyle(fontSize: 15),
+                              tabs: [
+                                new Tab(
+                                    icon: IconButton(
+                                    icon: Text('All',style: TextStyle(fontSize: 15),
 
-                                ),
-                                onPressed: () {
-                                  setdata2('','');
-                                  setState(() {
-                                    tabController.index=0;
-                                  });
-                                },
-                              )),
-                              IconButton(
-                                icon: Text('Init',style: TextStyle(fontSize: 15),),
-                                onPressed: () {
-                                  setdata2('Initial','X');
-                                  setState(() {
-                                    tabController.index=1;
-                                  });
-                                },
-                              ),
-                              IconButton(
-                                icon: Text('Acc',style: TextStyle(fontSize: 15),),
-                                onPressed: () {
-                                  setdata2('Accept','Inprogress');
-                                  setState(() {
-                                    tabController.index=2;
-                                  });
-
-                                },
-                              ),
-                              SizedBox(
-                                height: 30,
-                                width: 100,
-                                child: IconButton(
-                                  color: Colors.deepOrange,
-                                  icon: Text('Done',style: TextStyle(fontSize: 15),),
+                                  ),
                                   onPressed: () {
-                                    setdata2('Complete','Rejected');
+                                    setdata2('','');
                                     setState(() {
-                                      tabController.index=3;
+                                      tabController.index=0;
+                                    });
+                                  },
+                                )),
+                                IconButton(
+                                  icon: Text('Init',style: TextStyle(fontSize: 15),),
+                                  onPressed: () {
+                                    setdata2('Initial','X');
+                                    setState(() {
+                                      tabController.index=1;
                                     });
                                   },
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
+                                IconButton(
+                                  icon: Text('Acc',style: TextStyle(fontSize: 15),),
+                                  onPressed: () {
+                                    setdata2('Accept','Inprogress');
+                                    setState(() {
+                                      tabController.index=2;
+                                    });
+
+                                  },
+                                ),
+                                SizedBox(
+                                  height: 30,
+                                  width: 100,
+                                  child: IconButton(
+                                    color: Colors.deepOrange,
+                                    icon: Text('Done',style: TextStyle(fontSize: 15),),
+                                    onPressed: () {
+                                      setdata2('Complete','Rejected');
+                                      setState(() {
+                                        tabController.index=3;
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                body: TabBarView(
-                  children: [
-                    Container(
-                      height: MediaQuery.of(context).size.height - 30,
-                      width: MediaQuery.of(context).size.width - 30,
-                      child: _BuildList('All'),
-                    ),
-                    Container(
-                      height: MediaQuery.of(context).size.height - 30,
-                      width: MediaQuery.of(context).size.width - 30,
-                      child: _BuildList('Initial'),
-                    ),
-                    Container(
-                      height: MediaQuery.of(context).size.height - 30,
-                      width: MediaQuery.of(context).size.width - 30,
-                      child: _BuildList('Accept'),
-                    ),
-                    Container(
-                      height: MediaQuery.of(context).size.height - 30,
-                      width: MediaQuery.of(context).size.width - 30,
-                      child: _BuildList('Rejected'),
-                    ),
-                  ],
+                  body: TabBarView(
+                    children: [
+                      Container(
+                        height: MediaQuery.of(context).size.height - 30,
+                        width: MediaQuery.of(context).size.width - 30,
+                        child: _BuildList('All'),
+                      ),
+                      Container(
+                        height: MediaQuery.of(context).size.height - 30,
+                        width: MediaQuery.of(context).size.width - 30,
+                        child: _BuildList('Initial'),
+                      ),
+                      Container(
+                        height: MediaQuery.of(context).size.height - 30,
+                        width: MediaQuery.of(context).size.width - 30,
+                        child: _BuildList('Accept'),
+                      ),
+                      Container(
+                        height: MediaQuery.of(context).size.height - 30,
+                        width: MediaQuery.of(context).size.width - 30,
+                        child: _BuildList('Rejected'),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
 
-          //search
-          Positioned(
-            top: MediaQuery.of(context).size.height / 9,
-            left: 10,
-            right: 10,
+            //search
+            Positioned(
+              top: MediaQuery.of(context).size.height / 11,
+              left: 10,
+              right: 10,
 
-            // left: MediaQuery.of(context).size.width / 2 - 70,
-            child: Container(
-              height: 50,
-              width: MediaQuery.of(context).size.width - 30,
-              child: Material(
-                elevation: 5.0,
-                borderRadius: BorderRadius.circular(5.0),
-                child: TextField(
-                    controller: contsearch,
-                    onChanged: (value) {
-                      print('inside change$value');
-                      filterSearchResults(value);
-                      gettypetotalprice();
-                    },
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        prefixIcon:
-                            Icon(Icons.search, color: pcolor2, size: 30.0),
-                        suffixIcon: IconButton(
-                            icon:
-                                Icon(Icons.cancel, color: pcolor2, size: 30.0),
-                            onPressed: () {
-                              print('inside clear');
-                              contsearch.clear();
-                              contsearch.text = null;
-                              filterSearchResults(contsearch.text);
-                              gettypetotalprice();
-                            }),
-                        contentPadding: EdgeInsets.only(left: 15.0, top: 15.0),
-                        hintText:
-                            AppLocalizations.of(context).translate('Search'),
-                        hintStyle: TextStyle(
-                            color: Colors.grey, fontFamily: 'Quicksand'))),
+              // left: MediaQuery.of(context).size.width / 2 - 70,
+              child: Container(
+                height: 50,
+                width: MediaQuery.of(context).size.width - 30,
+                child: Material(
+                  elevation: 5.0,
+                  borderRadius: BorderRadius.circular(5.0),
+                  child: TextField(
+                      controller: contsearch,
+                      onChanged: (value) {
+                        print('inside change$value');
+                        filterSearchResults(value);
+                        gettypetotalprice();
+                      },
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          prefixIcon:
+                              Icon(Icons.search, color: pcolor2, size: 30.0),
+                          suffixIcon: IconButton(
+                              icon:
+                                  Icon(Icons.cancel, color: pcolor2, size: 30.0),
+                              onPressed: () {
+                                print('inside clear');
+                                contsearch.clear();
+                                contsearch.text = null;
+                                filterSearchResults(contsearch.text);
+                                gettypetotalprice();
+                              }),
+                          contentPadding: EdgeInsets.only(left: 15.0, top: 15.0),
+                          hintText:
+                              AppLocalizations.of(context).translate('Search'),
+                          hintStyle: TextStyle(
+                              color: Colors.grey, fontFamily: 'Quicksand'))),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

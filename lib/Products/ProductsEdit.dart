@@ -135,114 +135,115 @@ class _ProductsEditState extends State<ProductsEdit> {
 
     var appLanguage = Provider.of<AppLanguage>(context);
 
-    return Scaffold(
-      key: _scaffoldKey,
-      // drawer: Appdrawer(),
-      body:
-      Stack(
-        children: <Widget>[
-          //header shape
-          Positioned(
-            top: 0,
-            left: 0,
-            child: Container(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height / 4,
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
-              decoration: BoxDecoration(
-                //borderRadius: BorderRadius.circular(200),
-                //  color: Colors.amber,
-              ),
-              child: CustomPaint(
-                child: Container(
-                  height: 400.0,
+    return SafeArea(
+      child: Scaffold(
+        key: _scaffoldKey,
+        // drawer: Appdrawer(),
+        body:
+        Stack(
+          children: <Widget>[
+            //header shape
+            Positioned(
+              top: 0,
+              left: 0,
+              child: Container(
+                height: MediaQuery
+                    .of(context)
+                    .size
+                    .height / 4,
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width,
+                decoration: BoxDecoration(
+                  //borderRadius: BorderRadius.circular(200),
+                  //  color: Colors.amber,
                 ),
-                painter: _MyPainter(),
+                child: CustomPaint(
+                  child: Container(
+                    height: 400.0,
+                  ),
+                  painter: _MyPainter(),
+                ),
               ),
             ),
-          ),
 
-          //a
-          Positioned(
-            bottom: -125,
-            left: -150,
-            child: Container(
-              height: 250, //MediaQuery.of(context).size.height / 4,
-              width: 250, //MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(250),
-                color: colorOne,
+            //a
+            Positioned(
+              bottom: -125,
+              left: -150,
+              child: Container(
+                height: 250, //MediaQuery.of(context).size.height / 4,
+                width: 250, //MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(250),
+                  color: colorOne,
+                ),
               ),
             ),
-          ),
-          Positioned(
-            bottom: -100,
-            right: -115,
-            child: Container(
-              height: 250, //MediaQuery.of(context).size.height / 4,
-              width: 250, //MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(200),
-                  color: colorTwo),
+            Positioned(
+              bottom: -100,
+              right: -115,
+              child: Container(
+                height: 250, //MediaQuery.of(context).size.height / 4,
+                width: 250, //MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(200),
+                    color: colorTwo),
+              ),
             ),
-          ),
-          //menu
-          Positioned(
-            top: pheight/25,
-            left: pwidth/20,
-            child: IconButton(
-              icon: Icon(Icons.menu),
-              onPressed: () {
-                print('inside button');
-                // _scaffoldKey.currentState.openDrawer();
+            //menu
+            Positioned(
+              top: pheight/25,
+              left: pwidth/20,
+              child: IconButton(
+                icon: Icon(Icons.menu),
+                onPressed: () {
+                  print('inside button');
+                  // _scaffoldKey.currentState.openDrawer();
 
-                Navigator.pushReplacementNamed(context, "/ProductsMain");
-              },
+                  Navigator.pushReplacementNamed(context, "/ProductsMain");
+                },
+              ),
             ),
-          ),
-          Positioned(
-            top: pheight/25,
-            right: pwidth/20,
-            child: IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () {
-                print('inside button');
-                // FirebaseAuth.instance.signOut();
-                Navigator.pop(context);
-                //  Navigator.popAndPushNamed(context, "/SignIn");
+            Positioned(
+              top: pheight/25,
+              right: pwidth/20,
+              child: IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  print('inside button');
+                  // FirebaseAuth.instance.signOut();
+                  Navigator.pop(context);
+                  //  Navigator.popAndPushNamed(context, "/SignIn");
 
-                //Navigator.pushReplacementNamed(context, "/SignIn");
-              },
+                  //Navigator.pushReplacementNamed(context, "/SignIn");
+                },
+              ),
             ),
-          ),
-          //body
-          Positioned(
-            top: MediaQuery
-                .of(context)
-                .size
-                .height/12,
-            right: 10,
-            left:10,
-            child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height >= 775.0
-                    ? MediaQuery.of(context).size.height
-                    : 775.0,
+            //body
+            Positioned(
+              top: MediaQuery
+                  .of(context)
+                  .size
+                  .height/12,
+              right: 10,
+              left:10,
+              child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height >= 775.0
+                      ? MediaQuery.of(context).size.height
+                      : 775.0,
 
-                child:SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.all(4),
-                    child: Container(
-                      height: MediaQuery.of(context).size.height-2,
-                      width: MediaQuery.of(context).size.width,
-                      child: new Center(
-                          child: Column(
-                            children: <Widget>[
+                  child:SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height-2,
+                        width: MediaQuery.of(context).size.width,
+                        child: new Center(
+                            child: Column(
+                              children: <Widget>[
 //                              TextFormField(
 //                                controller: contprodid,
 //                                validator: (input) {
@@ -282,7 +283,7 @@ class _ProductsEditState extends State<ProductsEdit> {
 //                                decoration: InputDecoration(labelText: 'Prod Desc'),
 //                                // obscureText: true,
 //                              ),
-                              ///
+                                ///
 //                              Align(
 //                                alignment: (appLanguage.appLocal.toString() =='ar') ? Alignment.topRight :  Alignment.topLeft,
 //
@@ -341,30 +342,31 @@ class _ProductsEditState extends State<ProductsEdit> {
 //                                  )
 //                                ],
 //                              )
-                            ],
-                          )),
+                              ],
+                            )),
+                      ),
                     ),
                   ),
-                ),
 
 
+              ),
             ),
-          ),
-          //header title
-          Positioned(
-            top: MediaQuery.of(context).size.height / 18,
-            left: MediaQuery.of(context).size.width / 2 - 50,
-            child: Text(
-              AppLocalizations.of(context).translate('Details'),
-              style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+            //header title
+            Positioned(
+              top: MediaQuery.of(context).size.height / 18,
+              left: MediaQuery.of(context).size.width / 2 - 50,
+              child: Text(
+                AppLocalizations.of(context).translate('Details'),
+                style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
 
 
 
 
 
-        ],
+          ],
+        ),
       ),
     );
 

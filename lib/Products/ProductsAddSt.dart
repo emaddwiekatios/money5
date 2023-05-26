@@ -105,376 +105,378 @@ class _ProductAddStState extends State<ProductAddSt> {
   }
 
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _scaffoldKey,
-      // drawer: Appdrawer(),
-      body:GestureDetector(
-        onTap: (){
-          print('ontap');
-          FocusScopeNode currentFocus = FocusScope.of(context);
+    return SafeArea(
+      child: Scaffold(
+        key: _scaffoldKey,
+        // drawer: Appdrawer(),
+        body:GestureDetector(
+          onTap: (){
+            print('ontap');
+            FocusScopeNode currentFocus = FocusScope.of(context);
 
-          if (!currentFocus.hasPrimaryFocus) {
-            currentFocus.unfocus();
-          }
-        },
+            if (!currentFocus.hasPrimaryFocus) {
+              currentFocus.unfocus();
+            }
+          },
 
-        child: Stack(
-          children: <Widget>[
-            //header shape
-            Positioned(
-              top: 0,
-              left: 0,
-              child: Container(
-                height: MediaQuery.of(context).size.height / 4,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  //borderRadius: BorderRadius.circular(200),
-                  //  color: red4,
-                ),
-                child: CustomPaint(
-                  child: Container(
-                    height: 400.0,
-                  ),
-                  painter: _MyPainter(),
-                ),
-              ),
-            ),
-            /*
-            Positioned(
-              top: 125,
-              left: -150,
-              child: Container(
-                height: 450, //MediaQuery.of(context).size.height / 4,
-                width: 450, //MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(250),
-                  color: red4,
-                ),
-              ),
-            ),
-            Positioned(
-              top: 100,
-              left: 115,
-              child: Container(
-                height: 350, //MediaQuery.of(context).size.height / 4,
-                width: 350, //MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(200),
-                    color: red4),
-              ),
-            ),
-            */
-            //a
-            Positioned(
-              bottom: -125,
-              left: -150,
-              child: Container(
-                height: 250, //MediaQuery.of(context).size.height / 4,
-                width: 250, //MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(250),
-                  color: pcolor4,
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: -100,
-              right: -115,
-              child: Container(
-                height: 250, //MediaQuery.of(context).size.height / 4,
-                width: 250, //MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(200),
-                    color: pcolor4),
-              ),
-            ),
-            //menu
-            Positioned(
-              top: 20,
-              left: 20,
-              child: IconButton(
-                icon: Icon(Icons.arrow_back),
-                onPressed: () {
-                  print('inside button');
-                  //_scaffoldKey.currentState.openDrawer();
-                  Navigator.of(context).pushReplacement(
-                    new MaterialPageRoute(
-                        builder: (BuildContext context) => new ProductsMain()),
-                  );
-                },
-              ),
-            ),
-            Positioned(
-              top: MediaQuery.of(context).size.height / 14,
-              left: MediaQuery.of(context).size.width / 2 -
-                  ('Add Document'.toString().length * 8),
-              child: Text(
-                'Add Document',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-              ),
-            ),
-            //body
-            Positioned(
-              top: 110,
-              right: 0,
-              child: Container(
+          child: Stack(
+            children: <Widget>[
+              //header shape
+              Positioned(
+                top: 0,
+                left: 0,
+                child: Container(
+                  height: MediaQuery.of(context).size.height / 4,
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height >= 775.0
-                      ? MediaQuery.of(context).size.height
-                      : 775.0,
-                  child: Padding(
-                    padding: const EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    //borderRadius: BorderRadius.circular(200),
+                    //  color: red4,
+                  ),
+                  child: CustomPaint(
                     child: Container(
-                      // color: Colors.red,
-                      //   height: MediaQuery.of(context).size.height/2,
-                      //   width: MediaQuery.of(context).size.width,
-                      child: new Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              Material(
-                                elevation: 5.0,
-                                borderRadius: BorderRadius.circular(5.0),
-                                child: TextFormField(
+                      height: 400.0,
+                    ),
+                    painter: _MyPainter(),
+                  ),
+                ),
+              ),
+              /*
+              Positioned(
+                top: 125,
+                left: -150,
+                child: Container(
+                  height: 450, //MediaQuery.of(context).size.height / 4,
+                  width: 450, //MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(250),
+                    color: red4,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 100,
+                left: 115,
+                child: Container(
+                  height: 350, //MediaQuery.of(context).size.height / 4,
+                  width: 350, //MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(200),
+                      color: red4),
+                ),
+              ),
+              */
+              //a
+              Positioned(
+                bottom: -125,
+                left: -150,
+                child: Container(
+                  height: 250, //MediaQuery.of(context).size.height / 4,
+                  width: 250, //MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(250),
+                    color: pcolor4,
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: -100,
+                right: -115,
+                child: Container(
+                  height: 250, //MediaQuery.of(context).size.height / 4,
+                  width: 250, //MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(200),
+                      color: pcolor4),
+                ),
+              ),
+              //menu
+              Positioned(
+                top: 20,
+                left: 20,
+                child: IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () {
+                    print('inside button');
+                    //_scaffoldKey.currentState.openDrawer();
+                    Navigator.of(context).pushReplacement(
+                      new MaterialPageRoute(
+                          builder: (BuildContext context) => new ProductsMain()),
+                    );
+                  },
+                ),
+              ),
+              Positioned(
+                top: MediaQuery.of(context).size.height / 14,
+                left: MediaQuery.of(context).size.width / 2 -
+                    ('Add Document'.toString().length * 8),
+                child: Text(
+                  'Add Document',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                ),
+              ),
+              //body
+              Positioned(
+                top: 110,
+                right: 0,
+                child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height >= 775.0
+                        ? MediaQuery.of(context).size.height
+                        : 775.0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: Container(
+                        // color: Colors.red,
+                        //   height: MediaQuery.of(context).size.height/2,
+                        //   width: MediaQuery.of(context).size.width,
+                        child: new Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Material(
+                                  elevation: 5.0,
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  child: TextFormField(
 
-                                    keyboardType: TextInputType.number,
-                                    controller: contProdid,
-                                    onChanged: (value) {},
-                                    validator: (input) {
-                                      if (input.isEmpty) {
-                                        return 'Please Prod Id ';
-                                      }
-                                    },
-                                    onSaved: (input) => imagename = input,
-                                    decoration: InputDecoration(
-                                        border: InputBorder.none,
+                                      keyboardType: TextInputType.number,
+                                      controller: contProdid,
+                                      onChanged: (value) {},
+                                      validator: (input) {
+                                        if (input.isEmpty) {
+                                          return 'Please Prod Id ';
+                                        }
+                                      },
+                                      onSaved: (input) => imagename = input,
+                                      decoration: InputDecoration(
+                                          border: InputBorder.none,
 
 //                        prefixIcon: Icon(Icons.search,
 //                            color: red2),
 //                            size: 30.0),
-                                        suffixIcon: IconButton(
-                                            icon: Icon(Icons.cancel,
-                                                color: Color(
-                                                    getColorHexFromStr('#FEE16D')),
-                                                size: 20.0),
-                                            onPressed: () {
-                                              print('inside clear');
-                                              contProdid.clear();
-                                              contProdid.text = null;
-                                            }),
-                                        contentPadding:
-                                        EdgeInsets.only(left: 15.0, top: 15.0),
-                                        hintText: 'Docs_id',
-                                        hintStyle: TextStyle(
-                                            color: Colors.grey,
-                                            fontFamily: 'Quicksand'))),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Material(
-                                elevation: 5.0,
-                                borderRadius: BorderRadius.circular(5.0),
-                                child: TextFormField(
-                                    controller: contProdname,
-                                    onChanged: (value) {},
-                                    validator: (input) {
-                                      if (input.isEmpty) {
-                                        return 'Please Prod Name ';
-                                      }
-                                    },
-                                    onSaved: (input) => imagename = input,
-                                    decoration: InputDecoration(
-                                        border: InputBorder.none,
+                                          suffixIcon: IconButton(
+                                              icon: Icon(Icons.cancel,
+                                                  color: Color(
+                                                      getColorHexFromStr('#FEE16D')),
+                                                  size: 20.0),
+                                              onPressed: () {
+                                                print('inside clear');
+                                                contProdid.clear();
+                                                contProdid.text = null;
+                                              }),
+                                          contentPadding:
+                                          EdgeInsets.only(left: 15.0, top: 15.0),
+                                          hintText: 'Docs_id',
+                                          hintStyle: TextStyle(
+                                              color: Colors.grey,
+                                              fontFamily: 'Quicksand'))),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Material(
+                                  elevation: 5.0,
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  child: TextFormField(
+                                      controller: contProdname,
+                                      onChanged: (value) {},
+                                      validator: (input) {
+                                        if (input.isEmpty) {
+                                          return 'Please Prod Name ';
+                                        }
+                                      },
+                                      onSaved: (input) => imagename = input,
+                                      decoration: InputDecoration(
+                                          border: InputBorder.none,
 //                        prefixIcon: Icon(Icons.search,
 //                            color: red2),
 //                            size: 30.0),
-                                        suffixIcon: IconButton(
-                                            icon: Icon(Icons.cancel,
-                                                color: Color(
-                                                    getColorHexFromStr('#FEE16D')),
-                                                size: 20.0),
-                                            onPressed: () {
-                                              print('inside clear');
-                                              contProdname.clear();
-                                              contProdname.text = null;
-                                            }),
-                                        contentPadding:
-                                        EdgeInsets.only(left: 15.0, top: 15.0),
-                                        hintText: 'Docs_name',
-                                        hintStyle: TextStyle(
-                                            color: Colors.grey,
-                                            fontFamily: 'Quicksand'))),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Material(
-                                elevation: 5.0,
-                                borderRadius: BorderRadius.circular(5.0),
-                                child: TextFormField(
-                                    controller: contProddesc,
-                                    onChanged: (value) {},
-                                    validator: (input) {
-                                      if (input.isEmpty) {
-                                        return 'Please Prod Name ';
-                                      }
-                                    },
-                                    onSaved: (input) => imagename = input,
-                                    decoration: InputDecoration(
-                                        border: InputBorder.none,
+                                          suffixIcon: IconButton(
+                                              icon: Icon(Icons.cancel,
+                                                  color: Color(
+                                                      getColorHexFromStr('#FEE16D')),
+                                                  size: 20.0),
+                                              onPressed: () {
+                                                print('inside clear');
+                                                contProdname.clear();
+                                                contProdname.text = null;
+                                              }),
+                                          contentPadding:
+                                          EdgeInsets.only(left: 15.0, top: 15.0),
+                                          hintText: 'Docs_name',
+                                          hintStyle: TextStyle(
+                                              color: Colors.grey,
+                                              fontFamily: 'Quicksand'))),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Material(
+                                  elevation: 5.0,
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  child: TextFormField(
+                                      controller: contProddesc,
+                                      onChanged: (value) {},
+                                      validator: (input) {
+                                        if (input.isEmpty) {
+                                          return 'Please Prod Name ';
+                                        }
+                                      },
+                                      onSaved: (input) => imagename = input,
+                                      decoration: InputDecoration(
+                                          border: InputBorder.none,
 //                        prefixIcon: Icon(Icons.search,
 //                            color: red2),
 //                            size: 30.0),
-                                        suffixIcon: IconButton(
-                                            icon: Icon(Icons.cancel,
-                                                color: Color(
-                                                    getColorHexFromStr('#FEE16D')),
-                                                size: 20.0),
-                                            onPressed: () {
-                                              print('inside clear');
-                                              contProddesc.clear();
-                                              contProddesc.text = null;
-                                            }),
-                                        contentPadding:
-                                        EdgeInsets.only(left: 15.0, top: 15.0),
-                                        hintText: 'Docs_Desc',
-                                        hintStyle: TextStyle(
-                                            color: Colors.grey,
-                                            fontFamily: 'Quicksand'))),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Material(
-                                elevation: 5.0,
-                                borderRadius: BorderRadius.circular(5.0),
-                                child: Row(
-                                  children: [
-                                    Align(
-                                      alignment: Alignment.topLeft,
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(left: 15.0),
-                                        child: DropdownButton<String>(
-                                            items: list_cat.map((String val) {
-                                              return new DropdownMenuItem<String>(
-                                                value: val,
-                                                child: new Text(val),
-                                              );
-                                            }).toList(),
-                                            hint: Text(_selectedCat),
-                                            onChanged: (newVal) {
-                                              this.setState(() {
-                                                _selectedCat = newVal;
-                                              });
-                                            }),
+                                          suffixIcon: IconButton(
+                                              icon: Icon(Icons.cancel,
+                                                  color: Color(
+                                                      getColorHexFromStr('#FEE16D')),
+                                                  size: 20.0),
+                                              onPressed: () {
+                                                print('inside clear');
+                                                contProddesc.clear();
+                                                contProddesc.text = null;
+                                              }),
+                                          contentPadding:
+                                          EdgeInsets.only(left: 15.0, top: 15.0),
+                                          hintText: 'Docs_Desc',
+                                          hintStyle: TextStyle(
+                                              color: Colors.grey,
+                                              fontFamily: 'Quicksand'))),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Material(
+                                  elevation: 5.0,
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  child: Row(
+                                    children: [
+                                      Align(
+                                        alignment: Alignment.topLeft,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(left: 15.0),
+                                          child: DropdownButton<String>(
+                                              items: list_cat.map((String val) {
+                                                return new DropdownMenuItem<String>(
+                                                  value: val,
+                                                  child: new Text(val),
+                                                );
+                                              }).toList(),
+                                              hint: Text(_selectedCat),
+                                              onChanged: (newVal) {
+                                                this.setState(() {
+                                                  _selectedCat = newVal;
+                                                });
+                                              }),
+                                        ),
                                       ),
-                                    ),
-                                    IconButton(icon:Icon(Icons.refresh,color: Red_deep,
-                                      ),
+                                      IconButton(icon:Icon(Icons.refresh,color: Red_deep,
+                                        ),
 
 
-                                      onPressed:(){
-                                      getData().then((results) {
-                                        setState(() {
-                                          print(widget.Docs_max);
-                                          contProdid.text = widget.Docs_max;
-                                          cars = results;
-                                          printlist();
+                                        onPressed:(){
+                                        getData().then((results) {
+                                          setState(() {
+                                            print(widget.Docs_max);
+                                            contProdid.text = widget.Docs_max;
+                                            cars = results;
+                                            printlist();
+                                          });
                                         });
-                                      });
-                                    },),
-                                    RaisedButton(
-                                        elevation: 7.0,
-                                        child: Text("Add Category"),
-                                        textColor: Colors.white,
-                                        color: Red_deep,
-                                        onPressed: () {
-                                          Navigator.pushNamed(
-                                              context, '/CategoryAdd');
-                                        }),
+                                      },),
+                                      RaisedButton(
+                                          elevation: 7.0,
+                                          child: Text("Add Category"),
+                                          textColor: Colors.white,
+                                          color: Red_deep,
+                                          onPressed: () {
+                                            Navigator.pushNamed(
+                                                context, '/CategoryAdd');
+                                          }),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Material(
+                                  elevation: 5.0,
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  child: TextFormField(
+                                      keyboardType: TextInputType.number,
+                                      controller: contProdprice,
+                                      onChanged: (value) {},
+                                      validator: (input) {
+                                        if (input.isEmpty) {
+                                          return 'Please Prod Cost ';
+                                        }
+                                      },
+                                      onSaved: (input) => imagename = input,
+                                      decoration: InputDecoration(
+                                          border: InputBorder.none,
+//                        prefixIcon: Icon(Icons.search,
+//                            color: red2),
+//                            size: 30.0),
+                                          suffixIcon: IconButton(
+                                              icon: Icon(Icons.cancel,
+                                                  color: Color(
+                                                      getColorHexFromStr('#FEE16D')),
+                                                  size: 20.0),
+                                              onPressed: () {
+                                                print('inside clear');
+                                                contProdprice.clear();
+                                                contProdprice.text = null;
+                                              }),
+                                          contentPadding:
+                                          EdgeInsets.only(left: 15.0, top: 15.0),
+                                          hintText: 'Docs_Cost',
+                                          hintStyle: TextStyle(
+                                              color: Colors.grey,
+                                              fontFamily: 'Quicksand'))),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                sampleimage == null
+                                    ? Text("Select an image")
+                                    : enableupload(),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                new Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    IconButton(
+                                      icon: Icon(Icons.camera_roll),
+                                      onPressed: () {
+                                        getImagegalary();
+
+                                        setState(() {
+                                          state = 0;
+                                        });
+                                      },
+                                    ),
+                                    IconButton(
+                                      icon: Icon(Icons.add_a_photo),
+                                      onPressed: () {
+                                        getImagecamera();
+
+                                        setState(() {
+                                          state = 0;
+                                        });
+                                      },
+                                    )
                                   ],
                                 ),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Material(
-                                elevation: 5.0,
-                                borderRadius: BorderRadius.circular(5.0),
-                                child: TextFormField(
-                                    keyboardType: TextInputType.number,
-                                    controller: contProdprice,
-                                    onChanged: (value) {},
-                                    validator: (input) {
-                                      if (input.isEmpty) {
-                                        return 'Please Prod Cost ';
-                                      }
-                                    },
-                                    onSaved: (input) => imagename = input,
-                                    decoration: InputDecoration(
-                                        border: InputBorder.none,
-//                        prefixIcon: Icon(Icons.search,
-//                            color: red2),
-//                            size: 30.0),
-                                        suffixIcon: IconButton(
-                                            icon: Icon(Icons.cancel,
-                                                color: Color(
-                                                    getColorHexFromStr('#FEE16D')),
-                                                size: 20.0),
-                                            onPressed: () {
-                                              print('inside clear');
-                                              contProdprice.clear();
-                                              contProdprice.text = null;
-                                            }),
-                                        contentPadding:
-                                        EdgeInsets.only(left: 15.0, top: 15.0),
-                                        hintText: 'Docs_Cost',
-                                        hintStyle: TextStyle(
-                                            color: Colors.grey,
-                                            fontFamily: 'Quicksand'))),
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              sampleimage == null
-                                  ? Text("Select an image")
-                                  : enableupload(),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              new Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  IconButton(
-                                    icon: Icon(Icons.camera_roll),
-                                    onPressed: () {
-                                      getImagegalary();
 
-                                      setState(() {
-                                        state = 0;
-                                      });
-                                    },
-                                  ),
-                                  IconButton(
-                                    icon: Icon(Icons.add_a_photo),
-                                    onPressed: () {
-                                      getImagecamera();
-
-                                      setState(() {
-                                        state = 0;
-                                      });
-                                    },
-                                  )
-                                ],
-                              ),
-
-                            ],
-                          )),
-                    ),
-                  )),
-            ),
-          ],
+                              ],
+                            )),
+                      ),
+                    )),
+              ),
+            ],
+          ),
         ),
       ),
     );
